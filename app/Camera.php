@@ -1,0 +1,15 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Camera extends Model
+{
+    protected $fillable = ['explanation', 'user_id'];
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
+    }
+}
