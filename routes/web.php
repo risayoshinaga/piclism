@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
     
-Route::resource('cameras', 'CamerasController', ['only' => ['index', 'show']]);
+Route::resource('cameras', 'CamerasController', ['only' => ['index', 'show','store','create']]);
+Route::resource('calendars', 'CalendarController', ['only' => ['show']]);
 
 });
