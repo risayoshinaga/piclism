@@ -38,40 +38,19 @@ class CamerasController extends Controller
             'lens' => 'required|max:500',
             'year' => 'required|max:10',
             'scene' => 'required|max:50',
-            'date' => 'required|max:500',
             'price' => 'required|max:50',
-            'content' => 'required|max:1000',
-            'speed' => 'required|max:50', 
-            'f_value' => 'required|max:100',
-            'iso' => 'required|max:100',
 
             
         ]);
-
-        $camera = new Camera;
-        $camera->name = $request->name;
-        $camera->save();
-        
-        $picture = new Picture;
-        $picture->content = $request->content;
-        $picture->save();
-        
-        $camedata = new Camedata;
-        $camedata->lens = $request->lens;
-        $camedata->year = $request->year;
-        $camedata->scene = $request->scene;
-        $camedata->price = $request->price;        
-        $camedata->save();
-        
-        $picdata = new Picdata;
-        $picdata->speed = $request->speed;        
-        $picdata->f_value = $request->f_value;          
-        $picdata->iso = $request->iso;
-        $picdata->save();
-        
-        $rental =new Rental;
-        $rental-> date = $request->date;
-        $rental->save();
+	\Debugbar::info(\Auth::user()->cameradatas());
+        \Auth::user()->cameradatas()->create([
+		'name' => $request->name,
+            	'lens' => $request->lens,
+            	'year' => $request->year,
+            	'scene' => $request->scene,
+            	'price' => $request->price,
+		'camera_id'=> 1,
+		]);	
         
 
         return redirect('/');
@@ -79,6 +58,8 @@ class CamerasController extends Controller
     
     public function create()
     {
-        return view('users.register');
+        $camera_data = \Auth::user()->cameradatas();
+	\Debugbar::info($camera_data);
+        return view('users.register',['camera_data'=>$camera_data]);
     }
 }

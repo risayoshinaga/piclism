@@ -38,4 +38,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Picture::class);
     }
+    
+    public function cameradatas()
+    {
+        return $this->hasManyThrough('App\Camedata','App\Camera','user_id','camera_id','id','id');
+    }
 }
