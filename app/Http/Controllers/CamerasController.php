@@ -39,19 +39,22 @@ class CamerasController extends Controller
             'year' => 'required|max:10',
             'scene' => 'required|max:50',
             'price' => 'required|max:50',
-
-            
-        ]);
-	\Debugbar::info(\Auth::user()->cameradatas());
-        \Auth::user()->cameradatas()->create([
+	    ]);
+	\Auth::user()->cameras()->create([
 		'name' => $request->name,
+		'price' => $request->price,
+		'explanation' => $request->explanation,
+		]);
+        \Auth::user()->cameradatas()->create([
             	'lens' => $request->lens,
             	'year' => $request->year,
             	'scene' => $request->scene,
-            	'price' => $request->price,
-		'camera_id'=> 1,
-		]);	
-        
+		'camera_id' => 1,
+		]);
+
+        $camera_id=\DB::table('cameras')->max('id');
+	$data_id=\DB::table('camedatas')->max('id');
+	\DB::table('camedatas')->where('id',$data_id)->update(['camera_id' => $camera_id]);
 
         return redirect('/');
     }

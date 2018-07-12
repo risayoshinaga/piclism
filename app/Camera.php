@@ -13,5 +13,8 @@ class Camera extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    
+    public function datas()
+    {
+        return $this->hasOne(Camedata::class, 'camera_id');
+    }    
 }
