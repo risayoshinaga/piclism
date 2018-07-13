@@ -40,6 +40,7 @@ class CamerasController extends Controller
             'scene' => 'required|max:50',
             'price' => 'required|max:50',
 	    ]);
+
 	    $filename = $request->file('image')->getClientOriginalName();
         $path = $request->file('image')->storeAs('public/cameras', $filename);
 	    \Auth::user()->cameras()->create([

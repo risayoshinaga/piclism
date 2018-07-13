@@ -3,29 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Picture;
 
 class PicturesController extends Controller
 {
-      public function store(Request $request)
+    public function index() {
+        
+        $pictures = Picture::all();
+        
+        return view('pictures.index', [
+            'pictures' => $pictures,
+        ]);
+    }
+    public function store(Request $request)
     {
+        $name = $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->storeAs('public/pictures', $name);
         $this->validate($request, [
-            'name' => 'required|max:500',
             'speed' => 'required|max:500',
             'f_value' => 'required|max:10',
             'iso' => 'required|max:50',
             'lens' => 'required|max:50',
 	    ]);
 	\Auth::user()->pictures()->create([
-		'name' => $request->name,
-		'' => $request->price,
-		'explanation' => $request->explanation,
+		'content' => $name,
+		'camera_id' => $request->camera_id,
 		]);
-	$camera_id=\DB::table('cameras')->max('id');
-        \Auth::user()->cameradatas()->create([
+	$picture_id=\DB::table('pictures')->max('id');
+        \Auth::user()->picturedatas()->create([
+            	'speed' => $request->speed,
+            	'f_value' => $request->f_value,
+            	'iso' => $request->iso,
             	'lens' => $request->lens,
-            	'year' => $request->year,
-            	'scene' => $request->scene,
-		'camera_id' => $camera_id,
+		        'picture_id' => $picture_id,
 		]);
 
         return redirect('/');
@@ -34,7 +44,13 @@ class PicturesController extends Controller
     public function create()
     {
         $picture = \Auth::user()->picturedatas();
-        $camera = \Auth::user()->cameras();
-        return view('pictures.register',['picture'=>$picture, 'camera'=>$camera]);
+        $camera_data = \Auth::user()->cameras()->get();
+        \Debugbar::info($camera_data);
+        $cameras=array();
+	    foreach ($camera_data as $camera) {
+	        $cameras[$camera->id] = $camera->name;
+	    }
+	    \Debugbar::info($cameras);
+        return view('pictures.register',['picture'=>$picture, 'cameras'=>$cameras]);
     }
 }
