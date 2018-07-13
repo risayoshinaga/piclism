@@ -33,7 +33,8 @@ class PicturesController extends Controller
     
     public function create()
     {
-        $picture_data = \Auth::user()->picturedatas();
-        return view('pictures.register',['picture_data'=>$picture_data]);
+        $picture = \Auth::user()->picturedatas();
+        $camera = \Auth::user()->cameras();
+        return view('pictures.register',['picture'=>$picture, 'camera'=>$camera]);
     }
 }

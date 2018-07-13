@@ -15,7 +15,7 @@ class CamerasController extends Controller
 {
     public function index()
     {
-        $cameras = Camera::paginate(10);
+        $cameras = Camera::all();
         
         return view('search.list', [
             'cameras' => $cameras,
@@ -40,12 +40,14 @@ class CamerasController extends Controller
             'scene' => 'required|max:50',
             'price' => 'required|max:50',
 	    ]);
-	\Auth::user()->cameras()->create([
-		'name' => $request->name,
-		'price' => $request->price,
-		'explanation' => $request->explanation,
-		]);
-	$camera_id=\DB::table('cameras')->max('id');
+	    $filename = $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->storeAs('public/cameras', $filename);
+	    \Auth::user()->cameras()->create([
+		    'name' => $request->name,
+		    'price' => $request->price,
+		    'explanation' => $filename,
+		    ]);
+	    $camera_id=\DB::table('cameras')->max('id');
         \Auth::user()->cameradatas()->create([
             	'lens' => $request->lens,
             	'year' => $request->year,

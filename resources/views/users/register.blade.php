@@ -6,14 +6,10 @@
         <div class="panel panel-default">
             <div class="panel-heading">New Camera</div>
             <div class="panel-body">
-                {!! Form::model($camera_data,['route' => 'cameras.store']) !!}
+                {!! Form::model($camera_data,['route' => 'cameras.store','files' => true]) !!}
                     <div class="form-group">
                         {!! Form::label('name', 'カメラの機種') !!}
                         {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
-                    </div>
-		    <div class="form-group">
-                        {!! Form::label('explanation', 'explanation') !!}
-                        {!! Form::text('explanation', old('explanation'), ['class' => 'form-control']) !!}
                     </div>
                     
                     <div class="form-group">
@@ -40,6 +36,10 @@
                         {!! Form::text('price', old('price'), ['class' => 'form-control']) !!}
                     </div>
                     
+                    <div class="form-group">
+	                     {!! Form::label('image', 'カメラの画像:') !!}
+                         {!! Form::file('image') !!}
+                    </div>
                     <div class="text-right">
                         {!! Form::submit('DON!', ['class' => 'btn btn-success']) !!}
                         

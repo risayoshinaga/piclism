@@ -6,7 +6,17 @@
         <div class="panel panel-default">
             <div class="panel-heading">New Picture</div>
             <div class="panel-body">
-                {!! Form::model($picture_data , ['route' => 'pictures.store','files' => true]) !!}
+                {!! Form::model($picture , ['route' => 'pictures.store','files' => true]) !!}
+                <div class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                                カメラ
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>Wantランキング</li>
+                            </ul>
+                        </div>
                     <div class="form-group">
                         {!! Form::label('image', 'カメラの画像') !!}
                         {!! Form::file('image') !!}
