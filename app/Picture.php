@@ -17,4 +17,9 @@ class Picture extends Model
     {
         return $this->belongsTo(Camera::class);
     }
+    
+    public function data()
+    {
+        return $this->hasOne(Picdata::class);
+    }
 }

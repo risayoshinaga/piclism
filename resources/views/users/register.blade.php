@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
         <div class="panel panel-default">
-            <div class="panel-heading">New Lism</div>
+            <div class="panel-heading">New Camera</div>
             <div class="panel-body">
                 {!! Form::model($camera_data,['route' => 'cameras.store']) !!}
                     <div class="form-group">

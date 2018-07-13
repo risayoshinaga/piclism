@@ -24,6 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
     
 Route::resource('cameras', 'CamerasController', ['only' => ['index', 'show','store','create']]);
+Route::resource('pictures', 'PicturesController', ['only' => ['index','store','create']]);
 Route::resource('calendars', 'CalendarController', ['only' => ['show']]);
-
 });
+Route::get('prices', function () {
+	return view('price');
+	})->name('prices');

@@ -45,16 +45,13 @@ class CamerasController extends Controller
 		'price' => $request->price,
 		'explanation' => $request->explanation,
 		]);
+	$camera_id=\DB::table('cameras')->max('id');
         \Auth::user()->cameradatas()->create([
             	'lens' => $request->lens,
             	'year' => $request->year,
             	'scene' => $request->scene,
-		'camera_id' => 1,
+		'camera_id' => $camera_id,
 		]);
-
-        $camera_id=\DB::table('cameras')->max('id');
-	$data_id=\DB::table('camedatas')->max('id');
-	\DB::table('camedatas')->where('id',$data_id)->update(['camera_id' => $camera_id]);
 
         return redirect('/');
     }

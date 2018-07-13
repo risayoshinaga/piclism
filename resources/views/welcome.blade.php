@@ -3,10 +3,7 @@
 @section('content')
     @if (Auth::check())
         <div class="row">
-            <aside class="col-md-4">
-            </aside>
-            <div class="col-xs-8">
-
+            @include('index')
             </div>
         </div>
     @else

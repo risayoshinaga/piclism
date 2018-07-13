@@ -14,7 +14,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
                         <li><a href="{{ route('cameras.index') }}">Search</a></li>
-                        <li><a href="{{ route('cameras.create') }}">Register</a></li>
+                        <li><a href="{{ route('cameras.create') }}">Camera</a></li>
+			<li><a href="{{ route('prices') }}">Price</a></li>
+			<li><a href="{{ route('pictures.create') }}">Pictures</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
