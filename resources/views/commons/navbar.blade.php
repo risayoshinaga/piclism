@@ -8,15 +8,35 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Piclism</a>
+                <a class="navbar-brand" href="/">PicMe</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
-                        <li><a href="{{ route('cameras.index') }}">Search</a></li>
-                        <li><a href="{{ route('cameras.create') }}">Camera</a></li>
-			<li><a href="{{ route('prices') }}">Price</a></li>
-			<li><a href="{{ route('pictures.create') }}">Pictures</a></li>
+			            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                Search
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('prices') }}">Price</a></li>
+				                <li><a href="{{ route('pictures.index') }}">Pictures</a></li>
+				                <li><a href="{{ route('cameras.index') }}">Cameras</a></li>
+                            </ul>
+                        </li>
+			            
+			            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                                Register
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+				                <li><a href="{{ route('pictures.create') }}">Picture</a></li>
+				                <li><a href="{{ route('cameras.create') }}">Camera</a></li>
+                            </ul>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
