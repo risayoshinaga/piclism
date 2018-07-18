@@ -8,7 +8,7 @@
 　<div class="row row-eq-height">
     <div class="col-lg-12 col-md-6 col-sm-6 work"> 
                <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
-                <img src="{{asset('storage/cameras/'.$camera->explanation)}}" alt="">
+                <img src="{{$camera->explanation}}" alt="">
     </a> 
 </div>
   

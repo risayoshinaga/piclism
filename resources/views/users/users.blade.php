@@ -5,13 +5,13 @@
 <p>{!! link_to_route('users.show', 'このユーザーの詳細', ['id' => $user->id]) !!}</p>
 @foreach ($cameras as $camera)
        <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
-        <img src="{{asset('storage/cameras/'.$camera->explanation)}}"></img>
+        <img src="{{$camera->explanation}}"></img>
        </a>
 @endforeach
 
 @foreach ($pictures as $picture)
        <a href="{{ route('pictures.show', ['id' => $picture->id])}}" class="work-box">
-        <img src="{{asset('storage/pictures/'.$picture->content)}}"></img>
+        <img src="{{$picture->content}}"></img>
        </a>
 
 @endforeach

@@ -6,7 +6,7 @@
 <?php $user = $picture->user ?>
 <p class="cameralist">
     <a href="{{ route('pictures.show', ['id' => $picture->id]) }}" class="work-box"> 
-        <img src="{{asset('storage/pictures/'.$picture->content)}}"  width="350" height="300">
+        <img src="{{$picture->content}}"  width="350" height="300">
     </a>
 <span class="caption">{{ $user->name}}</span>
 </p>

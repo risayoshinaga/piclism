@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Picture;
 
+use JD\Cloudder\Facades\Cloudder;
+
 class PicturesController extends Controller
 {
     public function index() {
@@ -25,8 +27,8 @@ class PicturesController extends Controller
     
     public function store(Request $request)
     {
-        $name = $request->file('image')->getClientOriginalName();
-        $path = $request->file('image')->storeAs('public/pictures', $name);
+	    Cloudder::upload($request->file('image'), null, ['folder' => "app/pictures"]);
+        $url = Cloudder::getResult()['url'];
         $this->validate($request, [
             'speed' => 'required|max:500',
             'f_value' => 'required|max:10',
@@ -34,7 +36,7 @@ class PicturesController extends Controller
             'lens' => 'required|max:50',
 	    ]);
 	\Auth::user()->pictures()->create([
-		'content' => $name,
+		'content' => $url,
 		'camera_id' => $request->camera_id,
 		]);
 	$picture_id=\DB::table('pictures')->max('id');
@@ -51,6 +53,7 @@ class PicturesController extends Controller
     
     public function create()
     {
+        
         $picture = \Auth::user()->picturedatas();
         $camera_data = \Auth::user()->cameras()->get();
         \Debugbar::info($camera_data);

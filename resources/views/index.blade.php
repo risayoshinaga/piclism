@@ -17,7 +17,7 @@
         @foreach ($pictures as $picture)
         <li>
           <a href="{{ route('pictures.show', ['id' => $picture->id])}}" class="work-box">
-            <img src="{{asset('storage/pictures/'.$picture->content)}}" width="400px" height="280px"></img>
+            <img src="{{$picture->content}}" width="400px" height="280px"></img>
           </a>        
         </li>
         @endforeach

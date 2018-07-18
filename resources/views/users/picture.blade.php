@@ -9,7 +9,7 @@
 
 <div id="top-pic">
     <a href="{{ route('pictures.show', ['id' => $picture->id]) }}" class="work-box"> 
-        <img src="{{asset('storage/pictures/'.$picture->content)}}" width="800" height="450">
+        <img src="{{$picture->content}}" width="800" height="450">
     </a>
 </div>
 <div id="pic-data">
@@ -19,7 +19,7 @@
 </div>
 <div id="take-came"> 
     <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
-        <img src="{{asset('storage/cameras/'.$camera->explanation)}}" width="480" height="270">
+        <img src="{{$camera->explanation}}" width="480" height="270">
     </a>
 </div> 
 

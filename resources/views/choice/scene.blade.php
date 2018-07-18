@@ -3,9 +3,9 @@
 @extends('layouts.grid_app')
 
 @section('content')
-
+<?php $choice = []; ?>
 <div class="row no-gutter">
-    <div class="col-lg-6 col-md-6 col-sm-6 work"> <a href="{{ route('cameras.index') }}" class="work-box"> <img src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531876379/app/images/Slide2.png" alt="">
+    <div class="col-lg-6 col-md-6 col-sm-6 work"> <a href="{{ route('cameras.index'), }}" class="work-box"> <img src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531876379/app/images/Slide2.png" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <h5>人物撮影に適したカメラへ</h5>

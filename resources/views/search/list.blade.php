@@ -5,7 +5,7 @@
 @foreach ($cameras as $camera)
 <p class="cameralist">
  <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
-   <img src="{{asset('storage/cameras/'.$camera->explanation)}}" width="350" height="300"></img>
+   <img src="{{$camera->explanation}}" width="350" height="300"></img>
 </a>
    <span class="caption">{{ $camera->name}}</span>
 </p>

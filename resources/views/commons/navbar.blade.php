@@ -16,25 +16,27 @@
 			            <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                Search
+                                Borrow
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('sss') }}">Scene</a></li>
-                                <li><a href="{{ route('ppp') }}">Price</a></li>
-                                <li><a href="{{ route('allpicture') }}">Pictures</a></li>                                
-				                <li><a href="{{ route('cameras.index') }}">All Camera</a></li>
+                                <li><a href="{{ route('sss') }}">撮りたいシーンから探す</a></li>
+                                <li><a href="{{ route('ppp') }}">料金から探す</a></li>
+                                <li><a href="{{ route('allpicture') }}">写真から探す</a></li>                                
+				                <li><a href="{{ route('cameras.index') }}">すべてのカメラを見る</a></li>
                             </ul>
                         </li>
 			            <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
-                                Register
+                                Rend
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-				                <li><a href="{{ route('pictures.create') }}">Picture</a></li>
-				                <li><a href="{{ route('cameras.create') }}">Camera</a></li>
+				                <li><a href="{{ route('cameras.create') }}">カメラの登録</a></li>
+				                
+				                <li><a href="{{ route('pictures.create') }}">写真の登録</a></li>
+				                
                             </ul>
                         </li>                        
                         <li class="dropdown">

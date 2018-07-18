@@ -10,6 +10,7 @@ use App\Picture;
 use App\Camedata;
 use App\Picdata;
 use App\Rental;
+use JD\Cloudder\Facades\Cloudder;
 
 class CamerasController extends Controller
 {
@@ -44,12 +45,12 @@ class CamerasController extends Controller
             'price' => 'required|max:50',
 	    ]);
 
-	    $filename = $request->file('image')->getClientOriginalName();
-        $path = $request->file('image')->storeAs('public/cameras', $filename);
+	    Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
+        $url = Cloudder::getResult()['url'];
 	    \Auth::user()->cameras()->create([
 		    'name' => $request->name,
 		    'price' => $request->price,
-		    'explanation' => $filename,
+		    'explanation' => $url,
 		    ]);
 	    $camera_id=\DB::table('cameras')->max('id');
         \Auth::user()->cameradatas()->create([
