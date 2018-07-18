@@ -90,6 +90,79 @@ footer{
     border-color: white;
 }
 
+.cameralist, #picnav img {
+    display: inline-block;   /* インラインブロック化 */
+    /*margin: auto;*/
+    margin: 0px 3px 7px 15px;  /*外側に余白を追加(※右に3px・下に7px) */
+    background-color: #ccc; /* 背景色 */
+    text-align: center;
+}
+/* ▼画像に対する装飾 */
+p.cameralist img {
+    display: block;          /* 余計な余白が出ないようにする */
+    margin: 0px 0px 3px 0px; /* 下側にだけ3pxの余白を追加 */
+    
+}
+/* ▼キャプションに対する装飾 */
+span .caption {
+   font-size: 0.9em;        /* 文字サイズを90%に */
+          /* 中身をセンタリング */
+}
 
+
+#nav, #picnav {
+  text-align: left;
+}
+
+#top-pic {
+  text-align: center;
+  margin-bottom:30px;
+}
+#top-pic img{
+	border:double 5px grey;
+}
+#pic-data{
+    display:inline-block;
+    margin-left: 180px;
+	border:double 5px grey;
+}
+#take-came{
+    display:inline-block;
+	border:double 5px grey;
+    margin-left: 70px;	
+}
+
+#take-came img{
+    float: left;margin-right:10px;
+	border:double 5px grey;
+}
+@media (max-width: 1200px) {
+   #nav,#top-pic,#take-came {
+  -moz-column-count:    4;
+  -webkit-column-count: 4;
+  column-count:         4;
+  }
+}
+@media (max-width: 1000px) {
+ #nav,#top-pic,#take-came {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+@media (max-width: 800px) {
+  #nav,#top-pic,#take-came {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+@media (max-width: 400px) {
+  #picnav, #nav {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}
 /*      */
 

@@ -8,31 +8,32 @@
     
 }
 
-
-#picnav, #nav {
-
-    padding: 100px 0px;
-    max-width: 100%;
-
-   /* Prevent vertical gaps */
-   line-height: 0;
-
-   -webkit-column-count: 3;
-   -webkit-column-gap:   0px;
-   -moz-column-count:    3;
-   -moz-column-gap:      0px;
-   column-count:         3;
-   column-gap:           0px;
-   
-   
+.cameralist, #picnav img {
+    display: inline-block;   /* インラインブロック化 */
+    /*margin: auto;*/
+    margin: 0px 3px 7px 15px;  /*外側に余白を追加(※右に3px・下に7px) */
+    background-color: #ccc; /* 背景色 */
+    text-align: center;
 }
-#picnav img, #nav img {
-  width: 96%; 
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 2%;
-  height: 300px;
+/* ▼画像に対する装飾 */
+p.cameralist img {
+    display: block;          /* 余計な余白が出ないようにする */
+    margin: 0px 0px 3px 0px; /* 下側にだけ3pxの余白を追加 */
+    
 }
+/* ▼キャプションに対する装飾 */
+span .caption {
+   font-size: 0.9em;        /* 文字サイズを90%に */
+          /* 中身をセンタリング */
+}
+
+
+#nav, #picnav {
+
+  text-align: left;
+}
+
+
 
 @media (max-width: 1200px) {
   #picnav, #nav {
