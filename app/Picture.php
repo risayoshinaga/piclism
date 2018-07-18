@@ -8,7 +8,7 @@ class Picture extends Model
 {
     protected $fillable = ['content','camera_id', 'user_id'];
 
-    public function taker()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

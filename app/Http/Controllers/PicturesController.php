@@ -15,6 +15,14 @@ class PicturesController extends Controller
             'pictures' => $pictures,
         ]);
     }
+    
+    public function show($id)
+    {
+        $picture = Picture::find($id);
+
+        return view('users.picture', ['picture'=> $picture]);
+    }    
+    
     public function store(Request $request)
     {
         $name = $request->file('image')->getClientOriginalName();
@@ -53,4 +61,5 @@ class PicturesController extends Controller
 	    \Debugbar::info($cameras);
         return view('pictures.register',['picture'=>$picture, 'cameras'=>$cameras]);
     }
+    
 }

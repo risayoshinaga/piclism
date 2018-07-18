@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+.navbar {
+    color:#000000;
+    background-color: white;
+    border-color: white;
+    font-family: 'Hind Madurai', sans-serif;
+    
+}
+.navbar-brand{
+    color:black;
+    margin-top:20%;
+    font-size:600%;
+}
+.navbar-right{
+    padding-top:6%;
+    font-size:200%;
+}
+
+#main_slide .main_image{
+    list-style: none;
+    margin:0;
+    padding:0;
+              display: inline-block;
+              position: relative;
+              /*background-color: #ffffff;*/
+              
+}
+
+ul.main_image li{
+    margin:45px 40px;
+}
+
+.jumbotron{
+    background-image: url(https://res.cloudinary.com/dalfnbfxr/image/upload/v1531876574/app/images/back_ground.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size:cover ;
+    border-color: white;
+}
+
+.power_word1{
+    font-family: 'Caveat', cursive;
+    font-size: 600%;
+    margin-top:0;
+    margin-bottom: 30px;
+    padding-top: 0;
+}
+.power_word2{
+    font-family: 'Caveat', cursive;
+    font-size: 600%;
+    margin:80px 0 30px;
+}
+.menu .media-object{
+    width:450px;
+    height:320px;
+}
+.menu .media-body{
+    background-color: #ffffff;
+    height:320px;
+}
+.menu .media-heading{
+    text-align: center;
+    margin-top: 130px;
+    font-family: "Noto Sans Japanese";
+    font-weight: 200;
+    color:black;
+}
+a:hover .media-heading{
+    text-decoration:underline;
+    color:gray;
+}
+
+footer{
+    margin-top:60px;
+    padding:0;
+    text-align: center;
+}
+
+.text-center h1{
+    font-family: 'Caveat', cursive;
+    font-size: 100px;
+    color:white;
+    margin:200px;
+}
+.text-center .btn{
+    background: rgba(0,0,0,0);
+    color:white;
+    border-width: medium;
+    border-color: white;
+}
+
+
+/*      */
+

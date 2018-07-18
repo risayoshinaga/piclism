@@ -11,22 +11,33 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@show');
+
+Route::get('sss', function () {
+	return view('choice.scene');
+})->name('sss');
+
+Route::get('ppp', function () {
+	return view('choice.price');
+})->name('ppp');
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/home', 'HomeController@show')->name('home');
+Route::get('allpicture', 'PicturesController@index')->name('allpicture');
 
 
 Route::group(['middleware' => 'auth'], function () {
     
 Route::resource('cameras', 'CamerasController', ['only' => ['index', 'show','store','create']]);
-Route::resource('pictures', 'PicturesController', ['only' => ['index','store','create']]);
+Route::resource('pictures', 'PicturesController', ['only' => ['index','show','store','create']]);
 Route::resource('calendars', 'CalendarController', ['only' => ['show']]);
+Route::resource('users', 'UsersController', ['only' => ['show']]);
 });
+
 Route::get('prices', function () {
 	return view('price');
 	})->name('prices');
+	
+Route::get('logout','Auth\LoginController@logout')->name('logout.get');

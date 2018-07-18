@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -15,20 +15,20 @@
                     @if (Auth::check())
 			            <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                 Search
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('prices') }}">Price</a></li>
-				                <li><a href="{{ route('pictures.index') }}">Pictures</a></li>
-				                <li><a href="{{ route('cameras.index') }}">Cameras</a></li>
+                                <li><a href="{{ route('sss') }}">Scene</a></li>
+                                <li><a href="{{ route('ppp') }}">Price</a></li>
+                                <li><a href="{{ route('allpicture') }}">Pictures</a></li>                                
+				                <li><a href="{{ route('cameras.index') }}">All Camera</a></li>
                             </ul>
                         </li>
-			            
 			            <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
                                 Register
                                 <span class="caret"></span>
                             </a>
@@ -36,21 +36,24 @@
 				                <li><a href="{{ route('pictures.create') }}">Picture</a></li>
 				                <li><a href="{{ route('cameras.create') }}">Camera</a></li>
                             </ul>
-                        </li>
+                        </li>                        
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">My profile</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="{{ route('logout') }}">Logout</a></li>
-                            </ul>
+                                <li>{!! link_to_route('users.show', 'My profile', ['id' => Auth::User()->id]) !!}</li>
+                                <li>{!! link_to_route('logout.get', 'Log out') !!}</li>
+                           </ul>
                         </li>
                     @else
-                        <li><a href="{{ route('register') }}">Register</a></li>
-                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li>{!! link_to_route('register', 'Signup') !!}</li>
+                        <li>{!! link_to_route('login', 'Login') !!}</li>
                     @endif
                 </ul>
             </div>
         </div>
     </nav>
 </header>
+

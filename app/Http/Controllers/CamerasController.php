@@ -25,10 +25,13 @@ class CamerasController extends Controller
     public function show($id)
     {
         $camera = Camera::find($id);
-
-        return view('users.camera', [
+        $pictures = $camera->pictures()->orderBy('created_at', 'desc')->paginate(10);
+        
+        $data = [
             'camera' => $camera,
-        ]);
+            'pictures' => $pictures,
+        ];
+        return view('users.camera', $data);
     }
     
       public function store(Request $request)
