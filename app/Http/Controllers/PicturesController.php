@@ -56,11 +56,9 @@ class PicturesController extends Controller
         
         $picture = \Auth::user()->picturedatas();
         $camera_data = \Auth::user()->cameras()->get();
-        \Debugbar::info($camera_data);
         $cameras=array();
 	        foreach ($camera_data as $camera) {
 	        $cameras[$camera->id] = $camera->name; 
-	        \Debugbar::info($cameras);
 	        }
         if(empty($cameras)){
 

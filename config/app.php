@@ -231,7 +231,8 @@ return [
         
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Cloudder' => 'JD\Cloudder\Facades\Cloudder'
+        'Cloudder' => 'JD\Cloudder\Facades\Cloudder',
+        'log' => env('APP_LOG', 'single'),
 
     ],
 

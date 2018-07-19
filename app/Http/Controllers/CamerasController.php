@@ -68,7 +68,6 @@ class CamerasController extends Controller
     public function create()
     {
         $camera_data = \Auth::user()->cameradatas();
-	    \Debugbar::info($camera_data);
         return view('users.register',['camera_data'=>$camera_data]);
     }
     public function destroy($id)
