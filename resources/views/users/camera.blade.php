@@ -11,6 +11,11 @@
                 <img src="{{$camera->explanation}}" alt="">
     </a> 
 </div>
+@if ( \Auth::id() === $camera->user_id )
+    {!! Form::model($camera, ['route' => ['cameras.destroy', $camera->id], 'method' => 'delete']) !!}
+    {!! Form::submit('削除') !!}
+    {!! Form::close() !!}
+@endif
   
 <div id="main_slide">
     <script type="text/javascript">
@@ -22,7 +27,7 @@
         @foreach ($pictures as $picture)
         <li>
           <a href="{{ route('pictures.show', ['id' => $picture->id])}}" class="work-box">
-            <img src="{{asset('storage/pictures/'.$picture->content)}}" width="400px" height="280px"></img>
+            <img src="{{$picture->content}}" width="400px" height="280px"></img>
           </a>        
         </li>
         @endforeach

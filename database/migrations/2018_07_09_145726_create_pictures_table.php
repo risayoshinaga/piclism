@@ -20,8 +20,8 @@ class CreatePicturesTable extends Migration
             $table->string('content');
             $table->timestamps();
             
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('camera_id')->references('id')->on('cameras');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('camera_id')->references('id')->on('cameras')->onDelete('cascade');
             
         });
     }

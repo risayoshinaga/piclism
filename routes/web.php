@@ -30,10 +30,11 @@ Route::get('allpicture', 'PicturesController@index')->name('allpicture');
 
 Route::group(['middleware' => 'auth'], function () {
     
-Route::resource('cameras', 'CamerasController', ['only' => ['index', 'show','store','create']]);
-Route::resource('pictures', 'PicturesController', ['only' => ['index','show','store','create']]);
+Route::resource('cameras', 'CamerasController');
+Route::resource('pictures', 'PicturesController');
 Route::resource('calendars', 'CalendarController', ['only' => ['show']]);
 Route::resource('users', 'UsersController', ['only' => ['show']]);
+Route::resource('choice', 'ChoiceController', ['only' => ['index']]);
 });
 
 Route::get('prices', function () {

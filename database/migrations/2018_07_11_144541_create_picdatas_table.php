@@ -23,7 +23,7 @@ class CreatePicdatasTable extends Migration
             $table->timestamps();
             
             
-            $table->foreign('picture_id')->references('id')->on('pictures');
+            $table->foreign('picture_id')->references('id')->on('pictures')->onDelete('cascade');
         });
     }
 

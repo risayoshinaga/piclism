@@ -14,6 +14,8 @@ use JD\Cloudder\Facades\Cloudder;
 
 class CamerasController extends Controller
 {
+
+    
     public function index()
     {
         $cameras = Camera::all();
@@ -66,7 +68,14 @@ class CamerasController extends Controller
     public function create()
     {
         $camera_data = \Auth::user()->cameradatas();
-	\Debugbar::info($camera_data);
+	    \Debugbar::info($camera_data);
         return view('users.register',['camera_data'=>$camera_data]);
+    }
+    public function destroy($id)
+    {
+        $camera = Camera::find($id);
+        $camera->delete();
+
+        return redirect('/');    
     }
 }

@@ -22,7 +22,7 @@ class CreateCamedatasTable extends Migration
             $table->timestamps();
             
             
-            $table->foreign('camera_id')->references('id')->on('cameras');
+            $table->foreign('camera_id')->references('id')->on('cameras')->onDelete('cascade');
             
         });
         

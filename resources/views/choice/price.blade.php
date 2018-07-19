@@ -2,12 +2,12 @@
 @extends('layouts.grid_app')
 @section('content')
 
-
+<?php $choice = []; ?>
 <div class="row no-gutter">
 　<div class="row row-eq-height">
     <div class="col-lg-4 col-md-4 col-sm-4 work"> 
     <div class="picture">
-      <a href="{{ route('cameras.index') }}" class="work-box"> <img src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531876381/app/images/Slide5.png" alt="">
+      <a href="{{ route('choice.index',['choice' => 4]) }}" class="work-box"> <img src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531876381/app/images/Slide5.png" alt="">
     </div>
         <div class="overlay">
           <div class="overlay-caption">
@@ -17,7 +17,7 @@
         </div>
         <!-- overlay --> 
     </a> </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 work"> <a href="{{ route('cameras.index') }}" class="work-box"> <img src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531876381/app/images/Slide6.png" alt="">
+    <div class="col-lg-4 col-md-4 col-sm-4 work"> <a href="{{ route('choice.index',['choice' => 5]) }}" class="work-box"> <img src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531876381/app/images/Slide6.png" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <h5>一泊2000円～5000円のカメラへ</h5>
@@ -26,7 +26,7 @@
         </div>
         <!-- overlay --> 
     </a> </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 work"> <a href="{{ route('cameras.index') }}" class="work-box"> <img src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531876381/app/images/Slide7.png" alt="">
+      <div class="col-lg-4 col-md-4 col-sm-4 work"> <a href="{{ route('choice.index',['choice' => 6]) }}" class="work-box"> <img src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531876381/app/images/Slide7.png" alt="">
         <div class="overlay">
           <div class="overlay-caption">
             <h5>一泊5000円以下のカメラへ</h5>

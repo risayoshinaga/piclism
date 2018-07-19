@@ -12,6 +12,12 @@
         <img src="{{$picture->content}}" width="800" height="450">
     </a>
 </div>
+
+@if ( \Auth::id() === $picture->user_id )
+    {!! Form::model($picture, ['route' => ['pictures.destroy', $picture->id], 'method' => 'delete']) !!}
+    {!! Form::submit('削除') !!}
+    {!! Form::close() !!}
+@endif
 <div id="pic-data">
         <p>[シャッター速度]{{ $picdata->speed}}秒</p>
         <p>[絞り値]{{ $picdata->f_value}}</p>

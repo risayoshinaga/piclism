@@ -58,11 +58,25 @@ class PicturesController extends Controller
         $camera_data = \Auth::user()->cameras()->get();
         \Debugbar::info($camera_data);
         $cameras=array();
-	    foreach ($camera_data as $camera) {
-	        $cameras[$camera->id] = $camera->name;
-	    }
-	    \Debugbar::info($cameras);
-        return view('pictures.register',['picture'=>$picture, 'cameras'=>$cameras]);
+	        foreach ($camera_data as $camera) {
+	        $cameras[$camera->id] = $camera->name; 
+	        \Debugbar::info($cameras);
+	        }
+        if(empty($cameras)){
+
+            return view('users.register',['camera_data'=>$camera_data]);
+        }
+        else{
+            return view('pictures.register',['picture'=>$picture, 'cameras'=>$cameras]);
+	    }   
+    
     }
     
+    public function destroy($id)
+    {
+        $picture = Picture::find($id);
+        $picture->delete();
+
+        return redirect('/');    
+    }
 }
