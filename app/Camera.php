@@ -19,5 +19,10 @@ class Camera extends Model
     public function datas()
     {
         return $this->hasOne(Camedata::class, 'camera_id');
-    }    
+    }
+    
+    public function lends()
+    {
+        return $this->hasMany(Lend::class);
+    }
 }

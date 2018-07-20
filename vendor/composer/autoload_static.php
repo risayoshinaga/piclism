@@ -351,6 +351,7 @@ class ComposerStaticInitcd73c1b3a07d5b5869fccbc41164ae8b
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\CalendarController' => __DIR__ . '/../..' . '/app/Http/Controllers/CalendarController.php',
         'App\\Http\\Controllers\\CamerasController' => __DIR__ . '/../..' . '/app/Http/Controllers/CamerasController.php',
+        'App\\Http\\Controllers\\ChoiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChoiceController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PicturesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PicturesController.php',

@@ -33,7 +33,7 @@
     
 </div> 
 <div class="text-right">
-{!! link_to_route('calendars.show', 'レンタルする！', ['id' => $camera->id], ['class' => 'btn btn-lg btn-default']) !!}
-</div>
 
+</div>
+<a href="{{ route('rentals.create',['id'=>$camera->id])}}">rental</a>
 @endsection

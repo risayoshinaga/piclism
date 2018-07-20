@@ -32,7 +32,6 @@ Route::group(['middleware' => 'auth'], function () {
     
 Route::resource('cameras', 'CamerasController');
 Route::resource('pictures', 'PicturesController');
-Route::resource('calendars', 'CalendarController', ['only' => ['show']]);
 Route::resource('users', 'UsersController', ['only' => ['show']]);
 Route::resource('choice', 'ChoiceController', ['only' => ['index']]);
 });
@@ -42,3 +41,6 @@ Route::get('prices', function () {
 	})->name('prices');
 	
 Route::get('logout','Auth\LoginController@logout')->name('logout.get');
+Route::get('rentals/{id}', 'RentalsController@create')->name('rentals.create');
+Route::post('rentals/store','RentalsController@store')->name('rentals.store');
+Route::post('rentals/destroy','RentalsController@destroy')->name('rentals.destroy');

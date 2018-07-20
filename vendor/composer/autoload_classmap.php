@@ -16,6 +16,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\CalendarController' => $baseDir . '/app/Http/Controllers/CalendarController.php',
     'App\\Http\\Controllers\\CamerasController' => $baseDir . '/app/Http/Controllers/CamerasController.php',
+    'App\\Http\\Controllers\\ChoiceController' => $baseDir . '/app/Http/Controllers/ChoiceController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\PicturesController' => $baseDir . '/app/Http/Controllers/PicturesController.php',
