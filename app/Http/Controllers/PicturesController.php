@@ -30,10 +30,7 @@ class PicturesController extends Controller
 	    Cloudder::upload($request->file('image'), null, ['folder' => "app/pictures"]);
         $url = Cloudder::getResult()['url'];
         $this->validate($request, [
-            'speed' => 'required|max:500',
-            'f_value' => 'required|max:10',
-            'iso' => 'required|max:50',
-            'lens' => 'required|max:50',
+
 	    ]);
 	\Auth::user()->pictures()->create([
 		'content' => $url,

@@ -8,54 +8,51 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">PicMe</a>
+                <a class="navbar-brand" href="/"><div class="text-primary">PICME</div></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::check())
-			            <li class="dropdown">
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                Borrow
+                                <span class="text-primary">SEARCH</span>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('sss') }}">撮りたいシーンから探す</a></li>
+                                <li><a href="{{ route('sss') }}">使うシーンから探す</a></li>
                                 <li><a href="{{ route('ppp') }}">料金から探す</a></li>
-                                <li><a href="{{ route('allpicture') }}">写真から探す</a></li>                                
-				                <li><a href="{{ route('cameras.index') }}">すべてのカメラを見る</a></li>
+                                <li><a href="{{ route('allpicture') }}">撮った写真から選ぶ</a></li>                                
+                                <li><a href="{{ route('cameras.index') }}">全てのカメラから選ぶ</a></li>
                             </ul>
                         </li>
-			            <li class="dropdown">
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
-                                Rend
+                                <span class="text-primary">REGISTER</span>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-				                <li><a href="{{ route('cameras.create') }}">カメラの登録</a></li>
-				                
-				                <li><a href="{{ route('pictures.create') }}">写真の登録</a></li>
-				                
+                                <li><a href="{{ route('cameras.create') }}">カメラを登録する</a></li>
+                                <li><a href="{{ route('pictures.create') }}">写真を登録する</a></li>
                             </ul>
                         </li>                        
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <span class="text-primary">{{ Auth::user()->name }}</span> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li>{!! link_to_route('users.show', 'My profile', ['id' => Auth::User()->id]) !!}</li>
-                                <li>{!! link_to_route('logout.get', 'Log out') !!}</li>
+                                <li>{!! link_to_route('users.show', 'プロフィール', ['id' => Auth::User()->id]) !!}</li>
+                                <li>{!! link_to_route('logout.get', 'ログアウト') !!}</li>
                            </ul>
                         </li>
                     @else
-                        <li>{!! link_to_route('register', 'Signup') !!}</li>
-                        <li>{!! link_to_route('login', 'Login') !!}</li>
+                        <li class="text-primary">{!! link_to_route('register', 'SIGNUP') !!}</li>
+                        <li class="text-primary">{!! link_to_route('login', 'LOGIN') !!}</li>
                     @endif
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-

@@ -24,12 +24,16 @@
    
     </head>
     <body>
+         <div class="jumbotron">
         @include('commons.navbar')
-    <div class="jumbotron">
+        
+        
+        <div class="center jumbotron">
         <div class="container">
             @include('commons.error_message')
 
             @yield('content')
+        </div>
         </div>
     </div>
     </body>

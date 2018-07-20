@@ -16,10 +16,10 @@ class CreatePicdatasTable extends Migration
         Schema::create('picdatas', function (Blueprint $table) {
             $table->increments('id');
               $table->integer('picture_id')->unsigned()->index();
-              $table->string('speed');
-              $table->string('f_value');
-              $table->string('iso');
-              $table->string('lens');
+              $table->string('speed')->nullable();
+              $table->string('f_value')->nullable();
+              $table->string('iso')->nullable();
+              $table->string('lens')->nullable();
             $table->timestamps();
             
             

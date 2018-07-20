@@ -4,7 +4,7 @@
 
 @if (Auth::check())
 <div class=power_word1>
-        <h1># Let's share memories!!</h1>
+        <h1>MEMORY</h1>
 </div>  
 
 <div id="main_slide">
@@ -24,7 +24,7 @@
       </ul>
 </div>
 <div class=power_word2>
-        <h1># Find the suitable camera for you.</h1>
+        <h1>SELECT</h1>
 </div>
    
 <div class="menu">

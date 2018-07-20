@@ -16,9 +16,9 @@ class CreateCamedatasTable extends Migration
         Schema::create('camedatas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('camera_id')->unsigned()->index();
-            $table->string('lens');
-            $table->integer('year');
-            $table->string('scene');
+            $table->string('lens')->nullable();
+            $table->integer('year')->nullable();
+            $table->string('scene')->nullable();
             $table->timestamps();
             
             

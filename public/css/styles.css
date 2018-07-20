@@ -1,29 +1,43 @@
 @charset "UTF-8";
 
 .navbar {
-    color:#000000;
-    background-color: white;
     border-color: white;
     font-family: 'Hind Madurai', sans-serif;
-    
+    background-color: #f5f5f5;
+    width:1800px;
+    height:150px;
+    margin:0 auto 30px;
+}
+.text-primary{
+    color:dimgray;
+    letter-spacing: 10px;
+}
+.glyphicon{
+    color: #5bc9c5;
+}
+.dropdown{
+    color:dimgray;
 }
 .navbar-brand{
-    color:black;
-    margin-top:20%;
-    font-size:600%;
+    margin-top:25%;
+    margin-bottom: 10%;
+    font-size:400%;
+    letter-spacing: 15px;
 }
 .navbar-right{
-    padding-top:6%;
-    font-size:200%;
+    margin-top:5%;
+    font-size:150%;
+    font-weight: lighter;
+    
 }
 
 #main_slide .main_image{
     list-style: none;
     margin:0;
     padding:0;
-              display: inline-block;
-              position: relative;
-              /*background-color: #ffffff;*/
+    display: inline-block;
+    position: relative;
+    /*background-color: #ffffff;*/
               
 }
 
@@ -32,24 +46,29 @@ ul.main_image li{
 }
 
 .jumbotron{
-    background-image: url(https://res.cloudinary.com/dalfnbfxr/image/upload/v1531876574/app/images/back_ground.jpg);
+    /*background-image: url(https://res.cloudinary.com/dalfnbfxr/image/upload/v1531877822/app/images/welcome_back_ground.jpg);*/
     background-position: center center;
     background-repeat: no-repeat;
     background-size:cover ;
-    border-color: white;
+    background-color: dimgray;
 }
 
-.power_word1{
-    font-family: 'Caveat', cursive;
-    font-size: 600%;
+.power_word1 h1{
+    font-family: 'Hind Madurai', sans-serif;
+    font-size: 280%;
     margin-top:0;
     margin-bottom: 30px;
     padding-top: 0;
+    color:dimgray;
+    letter-spacing: 15px;
 }
-.power_word2{
-    font-family: 'Caveat', cursive;
-    font-size: 600%;
+.power_word2 h1{
+    font-family: 'Hind Madurai', sans-serif;
+    font-weight:lighter;
+    font-size: 280%;
     margin:80px 0 30px;
+    color:dimgray;
+    letter-spacing: 15px;
 }
 .menu .media-object{
     width:450px;
@@ -87,55 +106,127 @@ footer{
     background: rgba(0,0,0,0);
     color:white;
     border-width: medium;
-    border-color: white;
+    border-color: #5BC9C5;
 }
-
 .cameralist, #picnav img {
     display: inline-block;   /* インラインブロック化 */
     /*margin: auto;*/
-    margin: 0px 3px 7px 15px;  /*外側に余白を追加(※右に3px・下に7px) */
-    background-color: #ccc; /* 背景色 */
+    margin: 0px 3px 7px 5px;  /*外側に余白を追加(※右に3px・下に7px) */
+    background-color: white; /* 背景色 */
     text-align: center;
 }
 /* ▼画像に対する装飾 */
 p.cameralist img {
     display: block;          /* 余計な余白が出ないようにする */
-    margin: 0px 0px 3px 0px; /* 下側にだけ3pxの余白を追加 */
+    margin: 7px 7px 20px 7px; /* 下側にだけ3pxの余白を追加 */
     
 }
+
+.cameras {
+    display: inline-block;   
+    margin: 0px 3px 7px 5px;
+    background-color: white;
+    text-align: center;
+}
 /* ▼キャプションに対する装飾 */
-span .caption {
-   font-size: 0.9em;        /* 文字サイズを90%に */
+.caption {
+   font-size: 20px;
+   /*font-family: */
+   padding: 50px 0;
+   /* 文字サイズを90%に */
           /* 中身をセンタリング */
 }
 
 
-#nav, #picnav {
+#nav {
   text-align: left;
+}
+
+.username {
+    text-align: center;
+}
+.icon {
+    text-align: center;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+.photo {
+    /*font-family: 'Kaushan Script', cursive;*/
+    text-align: center;
+    background: linear-gradient(transparent 70%, #5BC9C5 50%);
+    margin-left: 250px;
+    width:700px;
+}
+.photo h1 {
+    color: gray;
+}
+
+.photolist h1 {
+    color: gray;
+    font-size: 40px;
+    border-left:solid 10px #5BC9C5;
+    background-color: white;
+    padding: 20px 5px;
+    margin: 50px 0px;
+    width:400px;
 }
 
 #top-pic {
   text-align: center;
-  margin-bottom:30px;
+  margin-left: 45px;
+  margin-bottom: 30px;
+  padding: 50px 0px;
+
 }
+
 #top-pic img{
-	border:double 5px grey;
+    padding: 30px;
+              background-color: white;
 }
 #pic-data{
     display:inline-block;
     margin-left: 180px;
-	border:double 5px grey;
+              background-color: white;
+              line-height:50px;
+              padding: 30px;
+              font-family: "Noto Sans Japanese";
+              float: left;
+}
+#pic-data .data {
+    text-align:center;
 }
 #take-came{
     display:inline-block;
-	border:double 5px grey;
-    margin-left: 70px;	
+              background-color: white;
+    margin-left: 70px;     
+    margin-top: 0;
+}
+
+
+.cap {
+    margin:20px 0 20px 35px;
+    font-size: 20px;
 }
 
 #take-came img{
-    float: left;margin-right:10px;
-	border:double 5px grey;
+    float: right;
 }
+
+.text-right .btn {
+    background-color: #ff3366;
+    color:white;
+    border-width: medium;
+    border-color: #ff3366;
+    margin-top: 50px;
+    margin-right:150px;
+}
+
 @media (max-width: 1200px) {
    #nav,#top-pic,#take-came {
   -moz-column-count:    4;
@@ -144,7 +235,7 @@ span .caption {
   }
 }
 @media (max-width: 1000px) {
- #nav,#top-pic,#take-came {
+#nav,#top-pic,#take-came {
   -moz-column-count:    3;
   -webkit-column-count: 3;
   column-count:         3;
@@ -164,5 +255,9 @@ span .caption {
   column-count:         1;
   }
 }
-/*      */
 
+.center{
+    background-color: white;
+    width:1800px;
+    margin:auto;
+}

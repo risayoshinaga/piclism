@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div id="picback">
+
+ <div class="photolist">
+    <h1>Photographers' best</h1>
+</div>
 <div id="nav">
 @foreach ($pictures as $picture)
 <?php $user = $picture->user ?>
@@ -13,4 +19,3 @@
 @endforeach
 </div>
 @endsection
- 

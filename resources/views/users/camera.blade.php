@@ -4,11 +4,21 @@
 <?php $user = $camera->owner ?>
 <?php $camedata = $camera->datas ?>
 
-<div class="row no-gutter">
-　<div class="row row-eq-height">
-    <div class="col-lg-12 col-md-6 col-sm-6 work"> 
-               <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
-                <img src="{{$camera->explanation}}" alt="">
+<div class="photo">
+    <h1>Camera Profile </h1>
+</div>
+
+<div id="pic-data">
+        <p class="data">撮影データ</p>
+        <p>[使用レンズ]{{ $camedata->lens}}</p>
+        <p>[使用年数]{{ $camedata->year}}</p>
+        <p>[得意なシーン]{{ $camedata->scene}}</p>
+</div>
+<div id="take-came"> 
+
+<div class="cap">{{ $camera->name}}</div>
+    <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
+                <img src="{{$camera->explanation}}" width="400px", height="270px">
     </a> 
 </div>
 @if ( \Auth::id() === $camera->user_id )
@@ -16,7 +26,7 @@
     {!! Form::submit('削除') !!}
     {!! Form::close() !!}
 @endif
-  
+    
 <div id="main_slide">
     <script type="text/javascript">
     $(function(){
@@ -33,15 +43,12 @@
         @endforeach
       </ul>
 </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 work"> 
-        <p>{{ $camedata->lens}}</p>
-        <p>{{ $camedata->year}}</p>
-        <p>{{ $camedata->scene}}</p>
-        <p>{!! link_to_route('calendars.show', 'レンタルする！', ['id' => $camera->id]) !!}</p>
-    </div>
   </div>
 </div>
 
-@endsection
+<div class="text-right">
+{!! link_to_route('calendars.show', 'レンタルする！', ['id' => $camera->id], ['class' => 'btn btn-lg btn-default']) !!}
+</div>
 
+@endsection
 

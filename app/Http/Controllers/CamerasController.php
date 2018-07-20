@@ -41,9 +41,7 @@ class CamerasController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:500',
-            'lens' => 'required|max:500',
-            'year' => 'required|max:10',
-            'scene' => 'required|max:50',
+
             'price' => 'required|max:50',
 	    ]);
 
