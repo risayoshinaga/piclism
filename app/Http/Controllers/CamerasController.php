@@ -43,22 +43,22 @@ class CamerasController extends Controller
             'name' => 'required|max:500',
 
             'price' => 'required|max:50',
-	    ]);
+                  ]);
 
-	    Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
+                 Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
         $url = Cloudder::getResult()['url'];
-	    \Auth::user()->cameras()->create([
-		    'name' => $request->name,
-		    'price' => $request->price,
-		    'explanation' => $url,
-		    ]);
-	    $camera_id=\DB::table('cameras')->max('id');
+                  \Auth::user()->cameras()->create([
+                                'name' => $request->name,
+                                'price' => $request->price,
+                                'explanation' => $url,
+                                ]);
+                  $camera_id=\DB::table('cameras')->max('id');
         \Auth::user()->cameradatas()->create([
-            	'lens' => $request->lens,
-            	'year' => $request->year,
-            	'scene' => $request->scene,
-		'camera_id' => $camera_id,
-		]);
+                  'lens' => $request->lens,
+                  'year' => $request->year,
+                  'scene' => $request->scene,
+                            'camera_id' => $camera_id,
+                            ]);
 
         return redirect('/');
     }
@@ -74,5 +74,49 @@ class CamerasController extends Controller
         $camera->delete();
 
         return redirect('/');    
+    }
+    public function edit($id)
+    {
+        $camera = Camera::find($id);
+        $camedata = $camera->datas;
+        
+        $camera_data =[
+            'camera' => $camera,
+            'camedata' => $camedata,
+            ];
+        return view('cameras.edit', $camera_data);
+    }
+    
+    public function update(Request $request, $id)
+    {
+        
+        $this->validate($request, [
+            'name' => 'required|max:500',
+            'price' => 'required|max:50',
+                  ]);
+                  
+                  Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
+        $url = Cloudder::getResult()['url'];
+        
+        $camera = Camera::find($id);
+        $camera->name = $request->name;
+        $camera->price = $request->price;
+        $camera->explanation = $url;
+        $camera->save();
+        
+        $camedata = $camera->datas;
+        $camedata->lens = $request->lens;
+        $camedata->year = $request->year;
+        $camedata->scene = $request->scene;
+        $camedata->save();
+        
+        $pictures = $camera->pictures()->orderBy('created_at', 'desc')->paginate(10);
+        
+        $data = [
+            'camera' => $camera,
+            'pictures' => $pictures,
+        ];
+        return view('users.camera', $data);
+      
     }
 }

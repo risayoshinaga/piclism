@@ -4,51 +4,31 @@
 <?php $user = $camera->owner ?>
 <?php $camedata = $camera->datas ?>
 
-<div class="photo">
-    <h1>Camera Profile </h1>
+<div class="photolist">
+    <h1><span class="one">C</span>AMERA'S <span class="one">P</span>ROFILE</h1>
 </div>
 
-<div id="pic-data">
-        <p class="data">撮影データ</p>
-        <p>[使用レンズ]{{ $camedata->lens}}</p>
-        <p>[使用年数]{{ $camedata->year}}</p>
-        <p>[得意なシーン]{{ $camedata->scene}}</p>
-</div>
-<div id="take-came"> 
-
-<div class="cap">{{ $camera->name}}</div>
-    <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
-                <img src="{{$camera->explanation}}" width="400px", height="270px">
-    </a> 
-</div>
-@if ( \Auth::id() === $camera->user_id )
-    {!! Form::model($camera, ['route' => ['cameras.destroy', $camera->id], 'method' => 'delete']) !!}
-    {!! Form::submit('削除') !!}
-    {!! Form::close() !!}
-@endif
-    
-<div id="main_slide">
-    <script type="text/javascript">
-    $(function(){
-      $('#main_slide').infiniteslide();
-    });
-    </script>
-      <ul class=main_image>
-        @foreach ($pictures as $picture)
-        <li>
-          <a href="{{ route('pictures.show', ['id' => $picture->id])}}" class="work-box">
-            <img src="{{$picture->content}}" width="400px" height="280px"></img>
-          </a>        
-        </li>
-        @endforeach
-      </ul>
-</div>
-  </div>
-</div>
-
-<div class="text-right">
-{!! link_to_route('calendars.show', 'レンタルする！', ['id' => $camera->id], ['class' => 'btn btn-lg btn-default']) !!}
+<div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img src="{{$camera->explanation}}" class="thumbnail">
+            <div class= "caption">
+              @if (Auth::user()->id !== $camera->user_id)
+              <p class="text-center"><a href="{{ route('calendars.show', ['id' => $camera->id])}}" class="btn btn-primary btn-sm" role="button"> レンタルする</a></p>
+              @endif
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <ul class ="list-group">
+            <li class ="list-group-item"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> {{ $camera->name}}</li>
+            <li class ="list-group-item"><a href="{{ route('users.show', ['id' => $user->id])}}" class="work-box"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ $user->name}}</a></li>
+            <li class ="list-group-item"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> {{ $camera->price}}円/泊</li>
+            <li class ="list-group-item"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span> 付属レンズ：{{ $camera->lens}}</li>
+            <li class ="list-group-item"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span> 使用年数：{{ $camera->year}}</li>
+            <li class ="list-group-item"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span> 得意なシーン：{{ $camera->scene}}</li>
+          </ul>
+        </div>
 </div>
 
 @endsection
-

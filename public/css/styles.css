@@ -3,14 +3,13 @@
 .navbar {
     border-color: white;
     font-family: 'Hind Madurai', sans-serif;
-    background-color: #f5f5f5;
-    width:1800px;
-    height:150px;
-    margin:0 auto 30px;
+    background-color: white;
+    width:90%;
+    margin:0 auto 3%;
 }
 .text-primary{
     color:dimgray;
-    letter-spacing: 10px;
+    letter-spacing: 0.3em;
 }
 .glyphicon{
     color: #5bc9c5;
@@ -19,10 +18,9 @@
     color:dimgray;
 }
 .navbar-brand{
-    margin-top:25%;
+    margin-top:20%;
     margin-bottom: 10%;
     font-size:400%;
-    letter-spacing: 15px;
 }
 .navbar-right{
     margin-top:5%;
@@ -30,10 +28,13 @@
     font-weight: lighter;
     
 }
+.dropdown-menu{
+    font-family: "Noto Sans Japanese";
+}
 
 #main_slide .main_image{
     list-style: none;
-    margin:0;
+    margin-top:0;
     padding:0;
     display: inline-block;
     position: relative;
@@ -46,21 +47,20 @@ ul.main_image li{
 }
 
 .jumbotron{
-    /*background-image: url(https://res.cloudinary.com/dalfnbfxr/image/upload/v1531877822/app/images/welcome_back_ground.jpg);*/
     background-position: center center;
     background-repeat: no-repeat;
     background-size:cover ;
-    background-color: dimgray;
+    background-color: #f3f3f3;
 }
 
 .power_word1 h1{
     font-family: 'Hind Madurai', sans-serif;
     font-size: 280%;
-    margin-top:0;
+    margin-top:70px;
     margin-bottom: 30px;
     padding-top: 0;
     color:dimgray;
-    letter-spacing: 15px;
+    letter-spacing: 0.5em;
 }
 .power_word2 h1{
     font-family: 'Hind Madurai', sans-serif;
@@ -68,22 +68,35 @@ ul.main_image li{
     font-size: 280%;
     margin:80px 0 30px;
     color:dimgray;
-    letter-spacing: 15px;
+    letter-spacing: 0.5em;
+}
+h1 .one{
+    color:#5bc9c5;
+}
+.explanation h3{
+    font-family: "Noto Sans Japanese";
+    font-weight:100;
+    border-left: solid 3px #5bc9c5;
+}
+.menu{
+    margin-top: 60px;
 }
 .menu .media-object{
     width:450px;
     height:320px;
 }
-.menu .media-body{
-    background-color: #ffffff;
+.row .media-body{
+    /*background-color: #fafafa;*/
     height:320px;
+    border :solid #e5e5e5;
+    border-width:thin;
 }
 .menu .media-heading{
     text-align: center;
     margin-top: 130px;
     font-family: "Noto Sans Japanese";
-    font-weight: 200;
-    color:black;
+    font-weight: 100;
+    color:dimgray;
 }
 a:hover .media-heading{
     text-decoration:underline;
@@ -102,24 +115,20 @@ footer{
     color:white;
     margin:200px;
 }
-.text-center .btn{
-    background: rgba(0,0,0,0);
-    color:white;
-    border-width: medium;
-    border-color: #5BC9C5;
-}
-.cameralist, #picnav img {
-    display: inline-block;   /* インラインブロック化 */
-    /*margin: auto;*/
-    margin: 0px 3px 7px 5px;  /*外側に余白を追加(※右に3px・下に7px) */
-    background-color: white; /* 背景色 */
+
+.cameralist {
+    display: inline-block;
+    margin:0px 3px 7px 5px;
+    background-color: white;
     text-align: center;
+    border:solid 1.5px #dadada;
+    border-radius:10px;
 }
-/* ▼画像に対する装飾 */
+
 p.cameralist img {
-    display: block;          /* 余計な余白が出ないようにする */
-    margin: 7px 7px 20px 7px; /* 下側にだけ3pxの余白を追加 */
-    
+    display: block; 
+    margin: 20px 7px 20px 7px; 
+    border-bottom: solid dimgray;
 }
 
 .cameras {
@@ -128,32 +137,13 @@ p.cameralist img {
     background-color: white;
     text-align: center;
 }
-/* ▼キャプションに対する装飾 */
-.caption {
-   font-size: 20px;
-   /*font-family: */
-   padding: 50px 0;
-   /* 文字サイズを90%に */
-          /* 中身をセンタリング */
-}
-
 
 #nav {
   text-align: left;
 }
 
-.username {
-    text-align: center;
-}
-.icon {
-    text-align: center;
-    border-radius: 50%;
-    height: 300px;
-    width: 300px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 100px;
+.caption .username {
+    text-align: left;
 }
 
 .photo {
@@ -168,13 +158,17 @@ p.cameralist img {
 }
 
 .photolist h1 {
-    color: gray;
-    font-size: 40px;
-    border-left:solid 10px #5BC9C5;
-    background-color: white;
-    padding: 20px 5px;
-    margin: 50px 0px;
-    width:400px;
+    color: dimgray;
+    font-size: 200%;
+    font-weight:bold;
+    font-family: 'Hind Madurai', sans-serif;
+    letter-spacing: 8px;
+    text-align:center;
+    line-height:2;
+    margin:20px auto 70px;
+}
+.photolist h1 .one{
+    color:#5bc9c5;
 }
 
 #top-pic {
@@ -191,40 +185,26 @@ p.cameralist img {
 }
 #pic-data{
     display:inline-block;
-    margin-left: 180px;
-              background-color: white;
-              line-height:50px;
-              padding: 30px;
-              font-family: "Noto Sans Japanese";
-              float: left;
+    margin-top:30px;
+    background-color: #f5f5f5;
+    line-height:50px;
+    padding: 30px;
+    font-family: "Noto Sans Japanese";
+    float: right;
 }
 #pic-data .data {
     text-align:center;
 }
 #take-came{
     display:inline-block;
-              background-color: white;
+    background-color: white;
     margin-left: 70px;     
     margin-top: 0;
 }
 
 
-.cap {
-    margin:20px 0 20px 35px;
-    font-size: 20px;
-}
-
 #take-came img{
-    float: right;
-}
-
-.text-right .btn {
-    background-color: #ff3366;
-    color:white;
-    border-width: medium;
-    border-color: #ff3366;
-    margin-top: 50px;
-    margin-right:150px;
+   float: right;
 }
 
 @media (max-width: 1200px) {
@@ -258,6 +238,111 @@ p.cameralist img {
 
 .center{
     background-color: white;
-    width:1800px;
+    width:90%;
     margin:auto;
 }
+.username p{
+    color: dimgray;
+    font-size: 30px;
+    font-weight:bold;
+    font-family: 'Hind Madurai', sans-serif;
+    letter-spacing: 8px;
+    text-align:center;
+    width:550px;
+    line-height:2;
+    margin:20px auto;
+}
+.glyphicon-user{
+    color:#f3a68c;
+}
+.glyphicon-usd{
+    color:#AD95DB;
+}
+.thumbnail img{
+    margin-bottom: 0;
+}
+.thumbnail .caption a{
+    color:dimgray;
+    text-align: center;
+    font-family: 'Hind Madurai', sans-serif;
+    letter-spacing: 0.2em;
+}
+.thumbnail .caption h4{
+    color:dimgray;
+    font-family: 'Hind Madurai', sans-serif;
+    letter-spacing: 0.2em;
+}
+.thumbnail .caption h3{
+    color:dimgray;
+    text-align: center;
+    font-family: 'Hind Madurai', sans-serif;
+    letter-spacing: 0.2em;
+}
+.thumbnail .caption .btn{
+    text-align: center;
+    margin-left:0;
+    background: #5BC9C5;
+    color:white;
+    border-width: thin;
+    border-color: #5BC9C5;
+}
+.thumbnail .caption .btn:hover{
+    text-align: center;
+    margin-left:0;
+    background: rgba(0,0,0,0);
+    color:dimgray;
+    border-width: thin;
+    border-color: #5BC9C5;
+}
+.userimfo .thumbnail{
+    border :white;
+}
+.popover.show{
+    margin-bottom: 10px;
+}
+img.reviews {
+    margin-bottom: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.row-center{
+    text-align: center;
+  　letter-spacing: -0.4em;
+}
+.row-center > [class*='col-'] {
+  　display: inline-block;
+  　letter-spacing: 0;
+  　vertical-align: middle;
+  　float: none !important;
+}
+.popover-title{
+    font-size: 200%;
+    color:dimgray;
+    font-family: 'Hind Madurai', sans-serif;
+    letter-spacing: 0.2em;
+}
+.popover-content{
+    font-family: "Noto Sans Japanese";
+    color: dimgray;
+    
+}
+.nav .popover{
+    width: 120%; 
+}
+.delete .btn{
+    margin-left: 80%;
+    font-family: "Noto Sans Japanese";
+    color: dimgray;
+}
+.list-group-item{
+    color:dimgray;
+    font-family: 'Hind Madurai', sans-serif;
+    font-family: "Noto Sans Japanese";
+    letter-spacing: 0.2em;
+    font-size: 130%;
+}
+.list-group-item a{
+    color:dimgray;
+    font-family: 'Hind Madurai', sans-serif;
+    letter-spacing: 0.2em;
+}
+

@@ -341,6 +341,7 @@ class ComposerStaticInitcd73c1b3a07d5b5869fccbc41164ae8b
     );
 
     public static $classMap = array (
+        'App\\Borrow' => __DIR__ . '/../..' . '/app/Borrow.php',
         'App\\Camedata' => __DIR__ . '/../..' . '/app/Camedata.php',
         'App\\Camera' => __DIR__ . '/../..' . '/app/Camera.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -349,12 +350,12 @@ class ComposerStaticInitcd73c1b3a07d5b5869fccbc41164ae8b
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
-        'App\\Http\\Controllers\\CalendarController' => __DIR__ . '/../..' . '/app/Http/Controllers/CalendarController.php',
         'App\\Http\\Controllers\\CamerasController' => __DIR__ . '/../..' . '/app/Http/Controllers/CamerasController.php',
         'App\\Http\\Controllers\\ChoiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChoiceController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PicturesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PicturesController.php',
+        'App\\Http\\Controllers\\RentalsController' => __DIR__ . '/../..' . '/app/Http/Controllers/RentalsController.php',
         'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -362,6 +363,7 @@ class ComposerStaticInitcd73c1b3a07d5b5869fccbc41164ae8b
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Lend' => __DIR__ . '/../..' . '/app/Lend.php',
         'App\\Picdata' => __DIR__ . '/../..' . '/app/Picdata.php',
         'App\\Picture' => __DIR__ . '/../..' . '/app/Picture.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -369,7 +371,6 @@ class ComposerStaticInitcd73c1b3a07d5b5869fccbc41164ae8b
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\Rental' => __DIR__ . '/../..' . '/app/Rental.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',

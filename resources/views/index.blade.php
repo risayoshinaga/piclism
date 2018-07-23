@@ -3,9 +3,12 @@
 @section('content')
 
 @if (Auth::check())
-<div class=power_word1>
-        <h1>MEMORY</h1>
-</div>  
+    <div class=power_word1>
+        <h1><span class="one">M</span>EMORY</h1>
+    </div>
+    <div class="explanation">
+        <h3>　撮りたいイメージをクリックして、カメラをレンタルしましょう。</h3>
+    </div>
 
 <div id="main_slide">
     <script type="text/javascript">
@@ -23,46 +26,107 @@
         @endforeach
       </ul>
 </div>
-<div class=power_word2>
-        <h1>SELECT</h1>
-</div>
+    <div class=power_word2>
+        <h1><span class="one">S</span>ELECT</h1>
+    </div>
+    <div class="explanation">
+        <h3>　撮りたいシーン・料金・場所・写真から、あなたにぴったりのカメラを探しましょう。</h3>
+    </div>
    
 <div class="menu">
-    <div class="media">
-        <div class="media-left">
-            <img class="media-object" src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531886721/app/images/scene.jpg">
+    <div class="row row-center">
+        <div class="col-sm-6 col-md-5">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object" src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531886721/app/images/scene.jpg">
+                </div>    
+            </div>
         </div>
-        <div class="media-body">
-            <a href="{{ route('sss')}}"><h2 class="media-heading">シーンから選ぶ</h2></a>
+        <div class="col-sm-6 col-md-6">
+            <div class="media-body">
+                <a href="{{ route('sss')}}"><h2 class="media-heading">シーンから選ぶ</h2></a>
+            </div>    
         </div>
     </div>
-    <hr />
-    <div class="media">
-        <div class="media-body">
-            <a href="{{ route('ppp')}}"><h2 class="media-heading">料金から選ぶ</h2></a>
+    <hr/>
+    <div class="row row-center">
+        <div class="col-sm-6 col-md-6">
+            <div class="media-body">
+                <a href="{{ route('ppp')}}"><h2 class="media-heading">料金から選ぶ</h2></a>
+            </div>
         </div>
-        <div class="media-right" href="#">
-            <img class="media-object" src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531886743/app/images/money.jpg">
+        <div class="col-sm-6 col-md-5">
+            <div class="media-right" href="#">
+                <img class="media-object" src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531886743/app/images/money.jpg">
+            </div>    
+        </div>
     </div>
-    <hr />
-    <div class="media">
-        <div class="media-left">
-            <img class="media-object" src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531886720/app/images/place.jpg">
+    <hr/>
+    <div class="row row-center">
+        <div class="col-sm-6 col-md-5">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object" src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531886720/app/images/place.jpg">
+                </div>    
+            </div>
         </div>
+        <div class="col-sm-6 col-md-6">
         <div class="media-body">
             <a href=#><h2 class="media-heading">ご近所から選ぶ</h2></a>
+        </div>    
         </div>
     </div>
-    <hr />
-    <div class="media">
-        <div class="media-body">
-            <a href="{{ route('allpicture')}}"><h2 class="media-heading">撮った写真から選ぶ</h2></a>
+    <hr/>
+    <div class="row row-center">
+        <div class="col-sm-6 col-md-6">
+            <div class="media-body">
+                <a href="{{ route('allpicture')}}"><h2 class="media-heading">撮った写真から選ぶ</h2></a>
+            </div>
         </div>
-        <div class="media-right">
-            <img class="media-object" src="images/photographer.jpg">
+        <div class="col-sm-6 col-md-5">
+            <div class="media-right" href="#">
+                <img class="media-object" src="images/photographer.jpg">
+            </div>    
         </div>
     </div>
-</div>   
+    
+    
+    
+    <!--<div class="media">-->
+    <!--    <div class="media-left">-->
+    <!--        <img class="media-object" src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531886721/app/images/scene.jpg">-->
+    <!--    </div>-->
+    <!--    <div class="media-body">-->
+    <!--        <a href="{{ route('sss')}}"><h2 class="media-heading">シーンから選ぶ</h2></a>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <!--<hr />-->
+    <!--<div class="media">-->
+    <!--    <div class="media-body">-->
+    <!--        <a href="{{ route('ppp')}}"><h2 class="media-heading">料金から選ぶ</h2></a>-->
+    <!--    </div>-->
+    <!--    <div class="media-right" href="#">-->
+    <!--        <img class="media-object" src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531886743/app/images/money.jpg">-->
+    <!--    </div>-->
+    <!--<hr />-->
+    <!--<div class="media">-->
+    <!--    <div class="media-left">-->
+    <!--        <img class="media-object" src="https://res.cloudinary.com/dalfnbfxr/image/upload/v1531886720/app/images/place.jpg">-->
+    <!--    </div>-->
+    <!--    <div class="media-body">-->
+    <!--        <a href=#><h2 class="media-heading">ご近所から選ぶ</h2></a>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <!--<hr />-->
+    <!--<div class="media">-->
+    <!--    <div class="media-body">-->
+    <!--        <a href="{{ route('allpicture')}}"><h2 class="media-heading">撮った写真から選ぶ</h2></a>-->
+    <!--    </div>-->
+    <!--    <div class="media-right">-->
+    <!--        <img class="media-object" src="images/photographer.jpg">-->
+    <!--    </div>-->
+    <!--</div>-->
+    <!--</div>   -->
 
 @else
         
