@@ -30,10 +30,10 @@ class RentalsController extends Controller
         $lend_date = Lend::where('camera_id',$id)->get();
         $borrow_date = Borrow::where('camera_id',$id)->get();
         $days = array_column($lend_date->toArray(),'day');
-        \Debugbar::info($days);
+
         $borrows = array_column($borrow_date->toArray(),'day');
         $days_diff = array_diff($days,$borrows);
-        \Debugbar::info($days_diff);
+
         return view('rentals.rental',[
             'days'=>$days_diff,
             'lend'=>$lend_date]);

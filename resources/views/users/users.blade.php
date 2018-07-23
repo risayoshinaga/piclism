@@ -38,9 +38,10 @@
                 <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
                     <h2><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> {{ $camera->name}}</h2>
                 </a>
-                @if (Auth::user()->id !== $camera->user_id)
+       {{--         @if (Auth::user()->id !== $camera->user_id)
                     <p class="text-center"><a href="{{ route('calendars.show', ['id' => $camera->id])}}" class="btn btn-primary btn-sm" role="button"> レンタルする</a></p>
                 @endif
+        --}}
                 <p><h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> {{ $camera->price}}円/泊</h4></p>
                 
                 <p class="text-center">

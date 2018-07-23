@@ -13,9 +13,10 @@
           <div class="thumbnail">
             <img src="{{$camera->explanation}}" class="thumbnail">
             <div class= "caption">
-              @if (Auth::user()->id !== $camera->user_id)
+       {{--       @if (Auth::user()->id !== $camera->user_id)
               <p class="text-center"><a href="{{ route('calendars.show', ['id' => $camera->id])}}" class="btn btn-primary btn-sm" role="button"> レンタルする</a></p>
               @endif
+       --}}
             </div>
           </div>
         </div>

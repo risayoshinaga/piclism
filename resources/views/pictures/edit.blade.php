@@ -15,7 +15,7 @@
                         {!! Form::label('image', '写真') !!}
                         {!! Form::file('image') !!}
                     </div>
-                                        <div class="form-group">
+                    <div class="form-group">
                         {!! Form::label('speed', 'シャッタースピード') !!}
                         {!! Form::text('speed', old('speed', $picdata->speed), ['class' => 'form-control']) !!}
                     </div>
