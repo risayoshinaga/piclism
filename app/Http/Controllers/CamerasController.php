@@ -113,7 +113,7 @@ class CamerasController extends Controller
             'price' => 'required|max:50',
                   ]);
                   
-                  Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
+        Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
         $url = Cloudder::getResult()['url'];
         
         $camera = Camera::find($id);

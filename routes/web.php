@@ -24,6 +24,7 @@ Route::get('ppp', function () {
 
 Auth::routes();
 
+Route::get('intro', 'UsersController@edit')->name('intro');
 Route::get('/home', 'HomeController@show')->name('home');
 Route::get('allpicture', 'PicturesController@index')->name('allpicture');
 
@@ -32,7 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     
 Route::resource('cameras', 'CamerasController');
 Route::resource('pictures', 'PicturesController');
-Route::resource('users', 'UsersController', ['only' => ['show']]);
+Route::resource('users', 'UsersController', ['only' => ['show','update']]);
 Route::resource('choice', 'ChoiceController', ['only' => ['index']]);
 });
 

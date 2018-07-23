@@ -4,20 +4,22 @@
 
 <div class="row row-center">
     <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
-        <img src="http://res.cloudinary.com/dalfnbfxr/image/upload/v1532048771/app/images/yuko.jpg" class="img-responsive img-circle reviews">
+        <img src="{{$user->url}}" class="img-responsive img-circle reviews">
     </div>
     <div class="col-lg-10 col-md-9 col-sm-8 col-xs-7">
         <div class="popover right show"style="position:relative; top=-90px; left=100px; max-width:80%; display:inline;">
         <div class="arrow"></div>
-            <h3 class="popover-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ $user->name}}</h3>
+            <h3 class="popover-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ $user->name }}</h3>
         <div class="popover-content">
-            <p>カメラ歴３年です。<br>よろしくお願いします！</p>
+            <p>{{$user->selfintro}}</p>
         </div>
         </div>
     </div>
+    
 </div>
-
-
+@if (Auth::user()->id === $user->id)
+            <a href="{{ route('intro') }}">プロフィールの編集をする</a>
+@endif
 <br>
 <hr style="border:0;border-top:2px solid #dadada;">
 
