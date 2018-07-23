@@ -45,7 +45,16 @@ class PicturesController extends Controller
                                     'picture_id' => $picture_id,
                             ]);
 
-        return redirect('/');
+        $user = \Auth::user();
+        $cameras = $user->cameras()->get();
+        $pictures = $user->pictures()->get();
+        $data =[
+            'user' => $user,
+            'pictures' => $pictures,
+            'cameras' => $cameras,
+            ];
+            
+        return view('users.users', $data);  
     }
     
     public function create()
@@ -72,7 +81,17 @@ class PicturesController extends Controller
         $picture = Picture::find($id);
         $picture->delete();
 
-        return redirect('/');    
+
+        $user = \Auth::user();
+        $cameras = $user->cameras()->get();
+        $pictures = $user->pictures()->get();
+        $data =[
+            'user' => $user,
+            'pictures' => $pictures,
+            'cameras' => $cameras,
+            ];
+            
+        return view('users.users', $data);  
     }
      public function edit($id)
     {

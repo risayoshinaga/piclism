@@ -60,7 +60,16 @@ class CamerasController extends Controller
                             'camera_id' => $camera_id,
                             ]);
 
-        return redirect('/');
+        $user = \Auth::user();
+        $cameras = $user->cameras()->get();
+        $pictures = $user->pictures()->get();
+        $data =[
+            'user' => $user,
+            'pictures' => $pictures,
+            'cameras' => $cameras,
+            ];
+            
+        return view('users.users', $data);  
     }
     
     public function create()
@@ -73,7 +82,16 @@ class CamerasController extends Controller
         $camera = Camera::find($id);
         $camera->delete();
 
-        return redirect('/');    
+        $user = \Auth::user();
+        $cameras = $user->cameras()->get();
+        $pictures = $user->pictures()->get();
+        $data =[
+            'user' => $user,
+            'pictures' => $pictures,
+            'cameras' => $cameras,
+            ];
+            
+        return view('users.users', $data);      
     }
     public function edit($id)
     {
