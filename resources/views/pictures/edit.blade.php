@@ -9,36 +9,36 @@
                 {!! Form::model([$picture,$picdata] , ['route' => ['pictures.update', $picture->id ],'files' => true, 'method' => 'put']) !!}
                     <div class="form-group">
                         {!! Form::label('camera_id', '撮影したカメラ') !!} <br>                       
-                        {!! Form::select('camera_id', $cameras) !!}                    
+                        <p>{!! Form::select('camera_id', $cameras) !!}</p>                    
                     </div>
                     <div class="form-group">
                         {!! Form::label('image', '現在の写真') !!}
-                            <img src="{{$picture->content}}" width="480" height="270">
+                            <img src="{{$picture->url}}" width="480" height="270">
                         {!! Form::label('image', '新しい写真を選ぶ') !!}
                         {!! Form::file('image') !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('speed', 'シャッタースピード') !!}
-                        {!! Form::text('speed', old('speed', $picdata->speed), ['class' => 'form-control']) !!}
+                        <p>{!! Form::text('speed', old('speed',$picdata->speed), ["placeholder"=>"1 / 2000"],  ['class' => 'form-control']) !!}</p>
                     </div>
                    
                     <div class="form-group">
                         {!! Form::label('f_value', '絞り値') !!}
-                        {!! Form::text('f_value', old('f_value', $picdata->f_value), ['class' => 'form-control']) !!}
+                        <p>{!! Form::text('f_value', old('f_value',$picdata->f_value), ["placeholder"=>"F5.6"], ['class' => 'form-control']) !!}</p>
                     </div>
                     
                     <div class="form-group">
                         {!! Form::label('iso', 'ISO感度') !!}
-                        {!! Form::text('iso', old('iso', $picdata->iso), ['class' => 'form-control']) !!}
+                        <p>{!! Form::text('iso', old('iso',$picdata->iso), ["placeholder"=>"200"], ['class' => 'form-control']) !!}</p>
                     </div>
                     
                     <div class="form-group">
                         {!! Form::label('lens', '使用レンズ') !!} 
-                        {!! Form::text('lens', old('lens', $picdata->lens), ['class' => 'form-control']) !!}
+                        <p>{!! Form::text('lens', old('lens',$picdata->lens), ["placeholder"=>"ズーム、単焦点 etc"], ['class' => 'form-control']) !!}</p>
                     </div>
                     
                     <div class="text-right">
-                        {!! Form::submit('Yah!', ['class' => 'btn btn-success']) !!}
+                        {!! Form::submit('登録', ['class' => 'btn btn-success']) !!}
                         
                     </div>
                 {!! Form::close() !!}

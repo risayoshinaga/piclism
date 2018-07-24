@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Picture extends Model
 {
-    protected $fillable = ['content','camera_id', 'user_id'];
+    protected $fillable = ['camera_id', 'user_id','url'];
 
     public function user()
     {

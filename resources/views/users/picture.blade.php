@@ -13,8 +13,29 @@
 <div class ="row row-center">
     <div class ="col-sm-offset-2 col-sm-8">
         <div class="thumbnail">
-            <img src="{{$picture->content}}" class="thumbnail">
+            <img src="{{$picture->url}}" class="thumbnail">
         </div>
+                @if ( \Auth::id() === $picture->user_id )
+            <div class="text-center">
+                <a href="{{ route('pictures.edit', ['id' => $picture->id])}}" class="btn btn-primary btn-md" role="button"> 編集する</a>
+                {!! Form::model($camera, ['route' => ['pictures.destroy', $picture->id], 'method' => 'delete']) !!}
+                {!! Form::submit('削除', ['class' => 'btn btn-xs btn-default']) !!}
+                {!! Form::close() !!}
+                @endif
+            </div>
+                <style>
+                    .btn-primary{
+                        color: white;
+                        background-color:#AD95DB;
+                        border: solid #AD95DB;
+                    }
+                    .btn-primary:hover{
+                        color: dimgray;
+                        background-color:white;
+                        border: solid #AD95DB;
+                    }
+                    
+                </style>
     </div>
 </div>
 
@@ -35,7 +56,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+       </div>
     </div>
     <div class =" col-sm-6">
         <ul class ="list-group">
@@ -58,18 +79,16 @@
     <div class="col-sm-offset-4 col-sm-4">
         <div class="thumbnail">
             <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="thumbnail">
-            <img src="{{$camera->explanation}}" class="thumbnail">
+            <img src="{{$camera->url}}" class="thumbnail">
             </a>
             <div class= "caption">
                 <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
                     <h2><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> {{ $camera->name}}</h2>
                 </a>
-        {{--   
-                @if (Auth::user()->id !== $camera->user_id)
+            {{--    @if (Auth::user()->id !== $camera->user_id)
                 <p class="text-center"><a href="{{ route('calendars.show', ['id' => $camera->id])}}" class="btn btn-primary btn-sm" role="button"> レンタルする</a></p>
-                @endif
-        --}}
-                <h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> {{ $camera->price}}円/泊</h4>
+                @endif  --}}
+                <h4><span class="glyphicon glyphicon-jpy" aria-hidden="true"></span> {{ $camera->price}}円/泊</h4>
             </div>
         </div>
     </div>

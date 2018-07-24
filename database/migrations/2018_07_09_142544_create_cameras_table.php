@@ -17,7 +17,7 @@ class CreateCamerasTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('name');
-            $table->string('explanation');
+            $table->string('url');
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

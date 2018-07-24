@@ -20,7 +20,7 @@ class CamerasController extends Controller
     {
         $cameras = Camera::all();
         
-        return view('search.list', [
+        return view('cameras.index', [
             'cameras' => $cameras,
         ]);
     }
@@ -50,14 +50,14 @@ class CamerasController extends Controller
                   \Auth::user()->cameras()->create([
                                 'name' => $request->name,
                                 'price' => $request->price,
-                                'explanation' => $url,
+                                'url' => $url,
                                 ]);
                   $camera_id=\DB::table('cameras')->max('id');
         \Auth::user()->cameradatas()->create([
                   'lens' => $request->lens,
                   'year' => $request->year,
                   'scene' => $request->scene,
-                            'camera_id' => $camera_id,
+                  'camera_id' => $camera_id,
                             ]);
 
         $user = \Auth::user();
@@ -75,7 +75,7 @@ class CamerasController extends Controller
     public function create()
     {
         $camera_data = \Auth::user()->cameradatas();
-        return view('users.register',['camera_data'=>$camera_data]);
+        return view('cameras.register',['camera_data'=>$camera_data]);
     }
     public function destroy($id)
     {
@@ -118,13 +118,13 @@ class CamerasController extends Controller
             Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
             $url = Cloudder::getResult()['url'];
         }else{
-            $url = $camera->explanation;
+            $url = $camera->url;
         }   
         
             $camera = Camera::find($id);
             $camera->name = $request->name;
             $camera->price = $request->price;
-            $camera->explanation = $url;
+            $camera->url = $url;
             $camera->save();
             
             $camedata = $camera->datas;

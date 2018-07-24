@@ -255,7 +255,7 @@ p.cameralist img {
 .glyphicon-user{
     color:#f3a68c;
 }
-.glyphicon-usd{
+.glyphicon-jpy{
     color:#AD95DB;
 }
 .thumbnail img{
@@ -346,3 +346,26 @@ img.reviews {
     letter-spacing: 0.2em;
 }
 
+.panel-body span{
+    color: lightpink;
+}
+::-webkit-input-placeholder {
+        color: #dcdcdc;
+        opacity: 1;
+    }
+.text-right .btn {
+    background-color: #ff3366;
+    color:white;
+    border-width: medium;
+    border-color: #ff3366;
+    margin-top: 20px;
+    margin-right:50px;
+}
+.dropdown-menu .btn{
+margin-left:80%;
+}
+.explanation h2{
+font-family: "Noto Sans Japanese";
+font-weight:100;
+text-align: center;
+}

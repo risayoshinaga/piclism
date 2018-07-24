@@ -10,13 +10,13 @@
 
 <div class="row">
     @foreach ($pictures as $picture)
-    <div class="col-xs-6 col-md-4">
+    <div class="col-xs-12 col-md-4">
         <div class="thumbnail">
             
             <?php $user = $picture->user ?>
             <?php $camera = $picture->camera ?>
             <a href="{{ route('pictures.show', ['id' => $picture->id])}}" class="thumbnail">
-            <img src="{{$picture->content}}"></img>
+            <img src="{{$picture->url}}"></img>
             </a>
             <div class="caption">
                 <a href="{{ route('users.show', ['id' => $user->id])}}" class="work-box">

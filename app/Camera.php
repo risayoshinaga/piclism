@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Camera extends Model
 {
-    protected $fillable = ['explanation', 'user_id', 'name','price'];
+    protected $fillable = ['url', 'user_id', 'name','price'];
 
     public function owner()
     {

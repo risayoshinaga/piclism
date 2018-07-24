@@ -17,7 +17,7 @@ class CreatePicturesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('camera_id')->unsigned()->index();
-            $table->string('content');
+            $table->string('url');
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

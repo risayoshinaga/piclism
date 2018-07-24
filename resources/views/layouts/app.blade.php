@@ -37,5 +37,5 @@
         </div>
     </div>
     </body>
-    <footer>(c)2018 Noissy.</footer>
+<footer>&copy;2018 Noisyy.</footer>
 </html>

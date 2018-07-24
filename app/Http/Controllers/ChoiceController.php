@@ -22,7 +22,7 @@ class ChoiceController extends Controller
     else if($choice == 1){
         $cameras = Camera::select()
             ->join('camedatas','camedatas.camera_id','=','cameras.id')
-            ->where('scene','')
+            ->where('scene','person')
             ->get();
     }
     else if($choice == 2){
@@ -54,7 +54,7 @@ class ChoiceController extends Controller
             ->get();
     }
    
-    return view('search.list', [
+    return view('cameras.index', [
             'cameras' => $cameras,
         ]);
     }

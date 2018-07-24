@@ -7,12 +7,12 @@
 
 <div class="row">
     @foreach ($cameras as $camera)
-    <div class="col-xs-6 col-md-3">
+    <div class="col-xs-12 col-md-3">
         <div class="thumbnail">
             
             <?php $user = $camera->owner ?>
             <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="thumbnail">
-            <img src="{{$camera->explanation}}"></img>
+            <img src="{{$camera->url}}"></img>
             </a>
             <div class="caption">
                 <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
@@ -25,7 +25,7 @@
                 <p><a href="{{ route('users.show', ['id' => $user->id])}}" class="work-box">
                     <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ $user->name}}</h4>
                 </a> 
-                    <h4><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> {{ $camera->price}}円/泊</h4></p>
+                    <h4><span class="glyphicon glyphicon-jpy" aria-hidden="true"></span> {{ $camera->price}}円/泊</h4></p>
             </div>
             
         </div>

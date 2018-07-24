@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User; 
+use App\Camera;
 use App\Picture;
-
+use App\Camedata;
+use App\Picdata;
+use App\Rental;
 use JD\Cloudder\Facades\Cloudder;
 
 class PicturesController extends Controller
@@ -34,9 +38,9 @@ class PicturesController extends Controller
         Cloudder::upload($request->file('image'), null, ['folder' => "app/pictures"]);
         $url = Cloudder::getResult()['url'];
               \Auth::user()->pictures()->create([
-                            'content' => $url,
-                            'camera_id' => $request->camera_id,
-                            ]);
+                                'camera_id' => $request->camera_id,
+                                'url' => $url,
+                                ]);
               $picture_id=\DB::table('pictures')->max('id');
         \Auth::user()->picturedatas()->create([
                   'speed' => $request->speed,
@@ -69,7 +73,7 @@ class PicturesController extends Controller
                       }
         if(empty($cameras)){
 
-            return view('users.register',['camera_data'=>$camera_data]);
+            return view('cameras.register',['camera_data'=>$camera_data]);
         }
         else{
             return view('pictures.register',['picture'=>$picture, 'cameras'=>$cameras]);
@@ -121,11 +125,11 @@ class PicturesController extends Controller
             Cloudder::upload($request->file('image'), null, ['folder' => "app/pictures"]);
             $url = Cloudder::getResult()['url'];
         }else{
-            $url = $camera->content;
+            $url = $picture->url;
         } 
         
         $picture = Picture::find($id);
-        $picture->content = $url;
+        $picture->url = $url;
         $picture->save();
         
         $picdata = $picture->data;
