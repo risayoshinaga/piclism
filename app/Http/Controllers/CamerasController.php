@@ -69,7 +69,7 @@ class CamerasController extends Controller
             'cameras' => $cameras,
             ];
             
-        return view('users.users', $data);  
+        return redirect()->route('lends.show', ['cameraId'=>$camera_id]);  
     }
     
     public function create()

@@ -8,32 +8,18 @@ use App\Lend;
 use Calendar;
 class LendsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create($id)
     {
-        return view('rental.create',['id' => $id]);
+        return view('lends.create',['id' => $id]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
         $camera = Camera::find($request->id);
@@ -44,16 +30,9 @@ class LendsController extends Controller
         return redirect()->route('lends.show',['id' => $request->id]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show($cameraId)
     {
-        $data = Lend::where('camera_id',$id)->get();
-        $name = Camera::find($id)->name;
+        $data = Lend::where('camera_id',$cameraId)->get();
         if($data->count()){
 
         foreach ($data as $value) {
@@ -66,44 +45,44 @@ class LendsController extends Controller
 
                 new \DateTime($value->start),
 
-                new \DateTime($value->end.' +1 day')
+                new \DateTime($value->end.' +1 day'),
+                
+                null,
+                
+                ['color' => '#4169e1',
+                'url' => route('borrows.edit',['id' => $value->id])
+                ]
 
             );
           }
+       }else {
+           $events[] = Calendar::event(
+
+                "My Birthday",
+
+                true,
+
+                new \DateTime('1993-10-03'),
+
+                new \DateTime('1993-10-04')
+            );
        }
         $calendar = Calendar::addEvents($events);
-        return view('rental.show', ['calendar' => $calendar, 'id' => $id]);
+        return view('lends.show', ['calendar' => $calendar, 'id' => $cameraId]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        
+        $lend = Lend::where('id',$id)->get()->toArray()['0'];
+        return view('lends.edit',['lend' => $lend, 'id' => $id]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         

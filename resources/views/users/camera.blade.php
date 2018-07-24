@@ -28,7 +28,7 @@
                 {!! Form::close() !!}
                 {!! link_to_route('lends.show', 'lend', ['lend' => $camera->id]) !!}
             @else
-                {!! link_to_route('rentals.show', 'borrow', ['rental' => $camera->id]) !!}
+                {!! link_to_route('borrows.show', 'borrow', ['borrow' => $camera->id]) !!}
             @endif
             </div>
                 <style>

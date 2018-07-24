@@ -15,7 +15,7 @@
                     {!! $calendar->calendar() !!}
                     {!! $calendar->script() !!}
                 </div>
-                <div>{!! link_to_route('rentals.create',"create",['id' => $id]) !!}</div>
+                <div>{!! link_to_route('borrows.create',"create",['id' => $id]) !!}</div>
             </div>
         </div>
     </div>
