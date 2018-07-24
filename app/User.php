@@ -49,8 +49,8 @@ class User extends Authenticatable
         return $this->hasManyThrough('App\Picdata','App\Picture','user_id','picture_id','id','id');
     }
 
-    public function borrow()
+    public function borrows()
     {
-	return $this->hasMany('App\Borrow');
+	return $this->hasMany(Borrow::class);
     }
 }

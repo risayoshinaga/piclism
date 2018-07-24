@@ -26,7 +26,10 @@
                 {!! Form::model($camera, ['route' => ['cameras.destroy', $camera->id], 'method' => 'delete']) !!}
                 {!! Form::submit('削除', ['class' => 'btn btn-xs btn-default']) !!}
                 {!! Form::close() !!}
-                @endif
+                {!! link_to_route('lends.show', 'lend', ['lend' => $camera->id]) !!}
+            @else
+                {!! link_to_route('rentals.show', 'borrow', ['rental' => $camera->id]) !!}
+            @endif
             </div>
                 <style>
                     .btn-primary{
