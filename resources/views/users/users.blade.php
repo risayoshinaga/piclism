@@ -76,7 +76,6 @@
                 <a href="{{ route('cameras.show', ['id' => $camera->id])}}" class="work-box">
                     <h2><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> {{ $camera->name}}</h2>
                 </a>
-                <p><h4><span class="glyphicon glyphicon-jpy" aria-hidden="true"></span> {{ $camera->price}}円/泊</h4></p>
 
             </div>
 
