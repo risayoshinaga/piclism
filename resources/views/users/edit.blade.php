@@ -22,7 +22,7 @@
                         {!! Form::file('image') !!}
                     </div>
                     <div class="text-right">
-                        {!! Form::submit('DON!', ['class' => 'btn btn-success']) !!}
+                        {!! Form::submit('登録', ['class' => 'btn btn-success']) !!}
                     </div>
                 {!! Form::close() !!}
             </div>

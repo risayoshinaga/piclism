@@ -45,7 +45,7 @@
         </div>
 </div>
 <div class="row">        
-        <div class="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+        <div class="col-xs-12 col-md-offset-3 col-md-6">
           <ul class ="list-group">
             <li class ="list-group-item"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> {{ $camera->name}}</li>
             <li class ="list-group-item"><a href="{{ route('users.show', ['id' => $user->id])}}" class="work-box"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ $user->name}}</a></li>
