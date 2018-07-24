@@ -28,7 +28,7 @@
     <div class="col-sm-offset-2 col-sm-2">
         <div class ="userimfo">
             <div class="thumbnail">
-                <img src="http://res.cloudinary.com/dalfnbfxr/image/upload/v1532048771/app/images/yuko.jpg" class="img-responsive img-circle reviews">
+                <img src="{{$user->url}}" class="img-responsive img-circle reviews">
                 <div class="caption">
                     <a href="{{ route('users.show', ['id' => $user->id])}}" class="work-box">
                         <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ $user->name}}</h2>

@@ -41,11 +41,11 @@ class CamerasController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:500',
-
+            'image' => 'required',
             'price' => 'required|max:50',
                   ]);
 
-                 Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
+        Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
         $url = Cloudder::getResult()['url'];
                   \Auth::user()->cameras()->create([
                                 'name' => $request->name,
@@ -111,22 +111,27 @@ class CamerasController extends Controller
         $this->validate($request, [
             'name' => 'required|max:500',
             'price' => 'required|max:50',
-                  ]);
-                  
-        Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
-        $url = Cloudder::getResult()['url'];
-        
+        ]);
         $camera = Camera::find($id);
-        $camera->name = $request->name;
-        $camera->price = $request->price;
-        $camera->explanation = $url;
-        $camera->save();
+        $image = $request->file('image');
+        if (isset($image)){
+            Cloudder::upload($request->file('image'), null, ['folder' => "app/cameras"]);
+            $url = Cloudder::getResult()['url'];
+        }else{
+            $url = $camera->explanation;
+        }   
         
-        $camedata = $camera->datas;
-        $camedata->lens = $request->lens;
-        $camedata->year = $request->year;
-        $camedata->scene = $request->scene;
-        $camedata->save();
+            $camera = Camera::find($id);
+            $camera->name = $request->name;
+            $camera->price = $request->price;
+            $camera->explanation = $url;
+            $camera->save();
+            
+            $camedata = $camera->datas;
+            $camedata->lens = $request->lens;
+            $camedata->year = $request->year;
+            $camedata->scene = $request->scene;
+            $camedata->save();
         
         $pictures = $camera->pictures()->orderBy('created_at', 'desc')->paginate(10);
         

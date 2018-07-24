@@ -37,13 +37,13 @@
                     </div>
                     
                     <div class="form-group">
-                        <img src="{{$camera->explanation}}" width="480" height="270">
-                                   {!! Form::label('image', 'カメラの画像:') !!}
-                         {!! Form::file('image') !!}
+                        {!! Form::label('image', '現在のカメラ画像') !!}
+                            <img src="{{$camera->explanation}}" width="480" height="270">
+                        {!! Form::label('image', '新しいカメラの画像を選ぶ') !!}
+                        {!! Form::file('image') !!}
                     </div>
                     <div class="text-right">
                         {!! Form::submit('DON!', ['class' => 'btn btn-success']) !!}
-                        
                     </div>
                 {!! Form::close() !!}
             </div>

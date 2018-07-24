@@ -27,11 +27,12 @@ class PicturesController extends Controller
     
     public function store(Request $request)
     {
-                  Cloudder::upload($request->file('image'), null, ['folder' => "app/pictures"]);
-        $url = Cloudder::getResult()['url'];
-        $this->validate($request, [
 
-                  ]);
+        $this->validate($request, [
+                'image' => 'required',
+         ]);
+        Cloudder::upload($request->file('image'), null, ['folder' => "app/pictures"]);
+        $url = Cloudder::getResult()['url'];
               \Auth::user()->pictures()->create([
                             'content' => $url,
                             'camera_id' => $request->camera_id,
@@ -42,7 +43,7 @@ class PicturesController extends Controller
                   'f_value' => $request->f_value,
                   'iso' => $request->iso,
                   'lens' => $request->lens,
-                                    'picture_id' => $picture_id,
+                  'picture_id' => $picture_id,
                             ]);
 
         $user = \Auth::user();
@@ -114,10 +115,14 @@ class PicturesController extends Controller
     
     public function update(Request $request, $id)
     {
-        
-    
-                  Cloudder::upload($request->file('image'), null, ['folder' => "app/pictures"]);
-        $url = Cloudder::getResult()['url'];
+        $picture = Picture::find($id);
+        $image = $request->file('image');
+        if (isset($image)){
+            Cloudder::upload($request->file('image'), null, ['folder' => "app/pictures"]);
+            $url = Cloudder::getResult()['url'];
+        }else{
+            $url = $camera->content;
+        } 
         
         $picture = Picture::find($id);
         $picture->content = $url;

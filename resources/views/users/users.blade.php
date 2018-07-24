@@ -21,6 +21,7 @@
             <a href="{{ route('intro') }}">プロフィールの編集をする</a>
 @endif
 <br>
+
 <hr style="border:0;border-top:2px solid #dadada;">
 
 <div class="photolist">

@@ -8,11 +8,13 @@
             <div class="panel-body">
                 {!! Form::model([$picture,$picdata] , ['route' => ['pictures.update', $picture->id ],'files' => true, 'method' => 'put']) !!}
                     <div class="form-group">
-                    
+                        {!! Form::label('camera_id', '撮影したカメラ') !!} <br>                       
+                        {!! Form::select('camera_id', $cameras) !!}                    
                     </div>
-                        {!! Form::select('camera_id', $cameras) !!}
                     <div class="form-group">
-                        {!! Form::label('image', '写真') !!}
+                        {!! Form::label('image', '現在の写真') !!}
+                            <img src="{{$picture->content}}" width="480" height="270">
+                        {!! Form::label('image', '新しい写真を選ぶ') !!}
                         {!! Form::file('image') !!}
                     </div>
                     <div class="form-group">
