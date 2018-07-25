@@ -96,6 +96,7 @@ class CamerasController extends Controller
     public function edit($id)
     {
         $camera = Camera::find($id);
+    if (\Auth::user()->id == $picture->user_id) {
         $camedata = $camera->datas;
         
         $camera_data =[
@@ -103,6 +104,11 @@ class CamerasController extends Controller
             'camedata' => $camedata,
             ];
         return view('cameras.edit', $camera_data);
+    }else {
+            return redirect('/');  
+        }
+    
+        
     }
     
     public function update(Request $request, $id)

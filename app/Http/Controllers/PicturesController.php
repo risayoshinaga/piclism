@@ -101,6 +101,7 @@ class PicturesController extends Controller
      public function edit($id)
     {
         $picture = Picture::find($id);
+        if (\Auth::user()->id == $picture->user_id) {
         $picdata = $picture->data;
         $camera_data = \Auth::user()->cameras()->get();
         $cameras=array();
@@ -115,6 +116,10 @@ class PicturesController extends Controller
             'cameras' => $cameras,
             ];
         return view('pictures.edit', $data);
+        }else{
+            return redirect('/'); 
+        }
+
     }
     
     public function update(Request $request, $id)
