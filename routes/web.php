@@ -43,6 +43,6 @@ Route::get('prices', function () {
 	
 Route::get('logout','Auth\LoginController@logout')->name('logout.get');
 Route::get('borrows/{id}/create','BorrowsController@create')->name('borrows.create');
-Route::resource('borrows', 'BorrowsController',['only' => ['show','store','destroy','update','edit','destroy']]);
+Route::resource('borrows', 'BorrowsController',['only' => ['show','store','destroy','update','edit','destroy','index']]);
 Route::get('lends/{id}/create','LendsController@create')->name('lends.create');
 Route::resource('lends', 'LendsController',['only' => ['show','store','destroy','update','edit','destroy']]);

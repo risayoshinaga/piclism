@@ -50,7 +50,8 @@ class LendsController extends Controller
                 null,
                 
                 ['color' => '#4169e1',
-                'url' => route('borrows.edit',['id' => $value->id])
+                'textColor'=>'#ffffff',
+                'url' => route('lends.edit',['id' => $value->id])
                 ]
 
             );
@@ -73,18 +74,26 @@ class LendsController extends Controller
 
     public function edit($id)
     {
-        $lend = Lend::where('id',$id)->get()->toArray()['0'];
+        $lend = Lend::where('id',$id)->get()->toArray()[0];
         return view('lends.edit',['lend' => $lend, 'id' => $id]);
     }
 
     
     public function update(Request $request, $id)
     {
-        //
+        $lend = Lend::where('id',$id);
+        
+        $lend->update([
+            'start' => $request->start,
+            'end' => $request->end,
+        ]);
+        return redirect()->route('lends.show',['cameraId' => $request->cameraId]);
     }
 
     public function destroy($id)
     {
-        
+        $lend = Lend::find($id);
+        $lend->delete();
+        return redirect('/');
     }
 }

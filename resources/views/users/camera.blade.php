@@ -15,10 +15,13 @@
           <div class="thumbnail">
             <img src="{{$camera->url}}" class="thumbnail">
             <div class= "caption">
-          {{--    @if (Auth::user()->id !== $camera->user_id)
-              <p class="text-center"><a href="{{ route('calendars.show', ['id' => $camera->id])}}" class="btn btn-primary btn-sm" role="button"> レンタルする</a></p>
-              @endif --}}
+                @if (Auth::user()->id !== $camera->user_id)
+                  <p class="text-center"><a href="{{ route('borrows.show', ['borrow' => $camera->id])}}" class="btn btn-primary btn-lg" role="button"> レンタルする</a></p>
+                @else
+                  <p class="text-center"><a href="{{ route('lends.show', ['lend' => $camera->id])}}" class="btn btn-primary btn-lg" role="button"> 貸出する</a></p>
+                @endif
               
+            </div>
             </div>
             @if ( \Auth::id() === $camera->user_id )
             <div class="text-center">
@@ -26,11 +29,8 @@
                 {!! Form::model($camera, ['route' => ['cameras.destroy', $camera->id], 'method' => 'delete']) !!}
                 {!! Form::submit('削除', ['class' => 'btn btn-xs btn-default']) !!}
                 {!! Form::close() !!}
-                {!! link_to_route('lends.show', 'lend', ['lend' => $camera->id]) !!}
-            @else
-                {!! link_to_route('borrows.show', 'borrow', ['borrow' => $camera->id]) !!}
-            @endif
             </div>
+            @endif
                 <style>
                     .btn-primary{
                         color: white;

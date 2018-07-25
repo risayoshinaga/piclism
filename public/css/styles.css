@@ -11,6 +11,10 @@
     color:dimgray;
     letter-spacing: 0.3em;
 }
+.text-primary .one{
+    color:dimgray;
+    letter-spacing: 0.3em;
+}
 .glyphicon{
     color: #5bc9c5;
 }
@@ -368,4 +372,11 @@ margin-left:80%;
 font-family: "Noto Sans Japanese";
 font-weight:100;
 text-align: center;
+}
+
+label{
+    font-family: 'Hind Madurai', sans-serif;
+    letter-spacing: 0.2em;
+    font-weight:200;
+    color:dimgray;
 }

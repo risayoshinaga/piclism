@@ -9,7 +9,9 @@
     <div class="explanation">
         <h3>　撮りたいイメージをクリックして、カメラをレンタルしましょう。</h3>
     </div>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="infiniteslide.js"></script>
+        <script type="text/javascript" src="jquery.pause.min.js"></script>
 <div id="main_slide">
     <script type="text/javascript">
     $(function(){
@@ -108,10 +110,6 @@
 </div>
 
 
-
-
-
-
 <div class="container">
     <div class="feature">
         <div class="row">
@@ -132,6 +130,18 @@
             <h2><span class="glyphicon glyphicon-phone color-#5bc9c5" style="font-size: 300%" aria-hidden="true" ></span></h2>
             <br>
             <p>カメラで撮った写真を<br>シェアできる。</p>
+          </div></div>
+          <div class="col-md-offset-2 col-md-4">
+            <div class="thumbnail">
+            <h2><span class="glyphicon glyphicon-inbox color-#5bc9c5" style="font-size: 300%" aria-hidden="true" ></span></h2>
+            <br>
+            <p>自宅近くのロッカーで、<br>貸し借りできる。</p>
+          </div></div>
+          <div class="col-md-4">
+            <div class="thumbnail">
+            <h2><span class="glyphicon glyphicon-heart color-#5bc9c5" style="font-size: 300%" aria-hidden="true" ></span></h2>
+            <br>
+            <p>充実の保険制度で、<br>故障リスクに備えられる。</p>
           </div></div>
         </div>
     </div>

@@ -7,8 +7,38 @@ use App\Camera;
 use App\Lend;
 use Calendar;
 use App\Borrow;
+use App\User;
 class BorrowsController extends Controller
 {
+  public function index(){
+        $user=\Auth::user();
+        $borrows = $user->borrows()->get();
+
+        // if($borrow_data->count()){
+        // foreach ($borrow_data as $value) {
+            
+        //     $events[] = Calendar::event(
+
+        //         "予約済み",
+
+        //         true,
+
+        //         new \DateTime($value->start),
+
+        //         new \DateTime($value->end.' +1 day'),
+                
+        //         null,
+                
+        //         ['color' => '#f05050',
+        //         'url' => route('borrows.edit',['borrow' => $value->id])
+        //         ]
+        //     );
+        //   }
+
+        return view('borrows.index', ['borrows'=>$borrows]);  
+    
+}    
+
     public function show($cameraId)
     {
         $lend_data = Lend::where('camera_id',$cameraId)->get();
@@ -81,11 +111,11 @@ class BorrowsController extends Controller
     {
         $user = \Auth::user();
         $user->borrows()->create([
-                'camera_id' => $request->cameraId,
+                'camera_id' => $request->id,
                 'start' => $request->start,
                 'end' => $request->end
             ]);
-        return redirect()->route('borrows.show',['cameraId' => $request->cameraId]);
+        return redirect()->route('borrows.show',['cameraId' => $request->id]);
     }
     public function edit($id)
     {

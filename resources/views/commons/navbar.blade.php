@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><div class="text-primary">PICME</div></a>
+                <a class="navbar-brand" href="/"><div class="text-primary">P<spann class="one">I</spann>CME</div></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
