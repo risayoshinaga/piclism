@@ -115,7 +115,8 @@ class BorrowsController extends Controller
                 'start' => $request->start,
                 'end' => $request->end
             ]);
-        return redirect()->route('borrows.show',['cameraId' => $request->id]);
+        $borrows = $user->borrows()->get();
+        return view('borrows.index', ['borrows'=>$borrows]);  
     }
     public function edit($id)
     {

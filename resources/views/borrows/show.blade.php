@@ -6,7 +6,7 @@
     <h1><span class="one">M</span>AKE <span class="one">R</span>ESERVATION</h1>
     </div>
     <div class="col-md-offset-2 col-md-8">
-        <h3><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>レンタルする日にちを選択してください。</h3>
+        <h3><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>カレンダーの貸し出し可能期間内で、レンタルしたい日にちを選択してください。</h3>
     </div>
         @include('borrows.create',['id'=>$id])
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
