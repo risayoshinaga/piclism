@@ -20,7 +20,7 @@ class CreateLendsTable extends Migration
             $table->integer('month');
             $table->integer('day');
             $table->timestamps();
-            $table->foreign('camera_id')->references('id')->on('cameras')
+            $table->foreign('camera_id')->references('id')->on('cameras');
         });
     }
 
