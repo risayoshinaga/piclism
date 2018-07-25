@@ -27,7 +27,29 @@
             </div>
         </div>
     </div>
-    
+
+<style>
+a.bt-samp31{
+  display: block;
+  margin-top: 5px;
+  text-decoration: none;
+  height:35px;
+  width: 180px;
+  line-height: 37px;
+  text-align: center;
+  color: #2bb6c1;
+  border:solid 1px #2bb6c1;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+}
+a.bt-samp31:hover{
+  background: #2bb6c1;
+  color: #fff;
+}
+</style>            
 </div>
 
 @endsection

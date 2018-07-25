@@ -29,7 +29,7 @@
                 </div>
         </div>
         <div class="col-md-8 col-md-offset-4">
-            <a class="btn btn-default" href="{{ route('borrows.show',['cameraId'=>$borrow['camera_id']]) }}">カレンダーを見る</a>
+            <a class="btn btn-default" href="{{ route('borrows.index',['cameraId'=>$borrow['camera_id']]) }}">カレンダーを見る</a>
             <button class="btn btn-primary" type="submit" >変更する</button>
             </form>
             <form action="{{ route('borrows.destroy',['id' => $id]) }}" method="post">

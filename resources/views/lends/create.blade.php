@@ -15,16 +15,20 @@
                     <label for="end">END</label>
                     <input type="text" name="end" id="datepicker-end" autocomplete="off">
                     <select name="type">
-                        <option value="">受け取り方法</option>
-                        <option value="rocker">ロッカーで受け取り</option>
-                        <option value="delivery">配送で受け取り</option>
+                        <option value="">希望する渡し方</option>
+                        <option value="rocker">ロッカーに預け入れする</option>
+                        <option value="delivery">配送する</option>
                     </select> 
                     <button class="btn btn-primary" type="submit" >決定</button>
+                    <div class="circle">
+                    <a href="/" class="bt-samp31">トップページに戻る</a>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
 <script type="text/javascript">
 $('#datepicker-start').datepicker({ dateFormat: "yy-mm-dd" }).val();
 $('#datepicker-end').datepicker({ dateFormat: "yy-mm-dd" }).val();
