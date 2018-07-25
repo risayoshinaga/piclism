@@ -10,6 +10,7 @@ use App\Camedata;
 use App\Picdata;
 use App\Rental;
 use JD\Cloudder\Facades\Cloudder;
+use App\borrow;
 
 class PicturesController extends Controller
 {
@@ -71,6 +72,10 @@ class PicturesController extends Controller
                       foreach ($camera_data as $camera) {
                       $cameras[$camera->id] = $camera->name; 
                       }
+        $borrows = \Auth::user()->borrows()->get();
+            foreach ($borrows as $borrow) {
+                $cameras[$borrow->camera_id] = Camera::find($borrow->camera_id)->name; 
+            }
         if(empty($cameras)){
 
             return view('cameras.register',['camera_data'=>$camera_data]);
@@ -101,6 +106,7 @@ class PicturesController extends Controller
      public function edit($id)
     {
         $picture = Picture::find($id);
+        if (\Auth::user()->id == $picture->user_id) {
         $picdata = $picture->data;
         $camera_data = \Auth::user()->cameras()->get();
         $cameras=array();
@@ -115,6 +121,10 @@ class PicturesController extends Controller
             'cameras' => $cameras,
             ];
         return view('pictures.edit', $data);
+        }else{
+            return redirect('/'); 
+        }
+
     }
     
     public function update(Request $request, $id)
