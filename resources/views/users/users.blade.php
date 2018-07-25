@@ -67,7 +67,9 @@ a.bt-samp31:hover{
                     <h2><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> {{ $camera->name}}</h2>
                 </a>
                 <p><h4><span class="glyphicon glyphicon-jpy" aria-hidden="true"></span> {{ $camera->price}}円/泊</h4></p>
-
+@if (Auth::user()->id == $camera->user_id)                
+                <a href="{{ route('borrows.show', ['id' => $camera->id])}}" class="work-box"><h4>→貸し出し期間と予約を確認</h4></h4></a>
+@endif
                 
             </div>
             
