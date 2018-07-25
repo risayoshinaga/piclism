@@ -52,4 +52,11 @@
         </div>
     </div>
 </div>
+
+<style>
+::-webkit-input-placeholder {
+        color: #dcdcdc;
+        opacity: 1;
+    }
+</style>
 @endsection
