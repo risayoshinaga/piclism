@@ -14,6 +14,11 @@
                     <input type="text" name="start" id="datepicker-start" autocomplete="off">
                     <label for="end">END</label>
                     <input type="text" name="end" id="datepicker-end" autocomplete="off">
+                    <select name="type">
+                        <option value="">受け取り方法</option>
+                        <option value="rocker">ロッカーで受け取り</option>
+                        <option value="delivery">配送で受け取り</option>
+                    </select> 
                     <button class="btn btn-primary" type="submit" >決定</button>
                 </div>
             </div>
