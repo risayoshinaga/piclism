@@ -16,11 +16,10 @@ class CreateLendsTable extends Migration
         Schema::create('lends', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('camera_id')->unsigned();
-            $table->integer('year');
-            $table->integer('month');
-            $table->integer('day');
+            $table->date('start');
+            $table->date('end')->nullable();
             $table->timestamps();
-            $table->foreign('camera_id')->references('id')->on('cameras');
+            $table->foreign('camera_id')->references('id')->on('cameras')->onDelete('cascade');
         });
     }
 

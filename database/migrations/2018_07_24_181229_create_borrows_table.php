@@ -17,13 +17,11 @@ class CreateBorrowsTable extends Migration
             $table->increments('id');
             $table->integer('camera_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->integer('year');
-            $table->integer('month');
-            $table->integer('day');
+            $table->date('start');
+            $table->date('end')->nullable();
             $table->timestamps();
             $table->foreign('camera_id')->references('id')->on('cameras')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unique(['year','month','day']);
         });
     }
 
