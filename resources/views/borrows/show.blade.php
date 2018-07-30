@@ -5,9 +5,8 @@
     <div class="photolist">
     <h1><span class="one">M</span>AKE <span class="one">R</span>ESERVATION</h1>
     </div>
-@if (Auth::user()->id == $id) 
-<a href="{{ route('lends.edit', ['id' => $id])}}" class="work-box"><h4>→貸し出し期間の変更</h4></a>
-@else
+@if (Auth::user()->id !== $camera->user_id) 
+
     <div class="col-md-offset-2 col-md-8">
         <h3><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>カレンダーの貸し出し可能期間内で、レンタルしたい日にちを選択してください。</h3>
     </div>
@@ -28,6 +27,9 @@
                 </div>
                 
             </div>
+@if(Auth::user()->id == $camera->user_id) 
+<a href="{{ route('lends.edit', ['id' => $id])}}" class="work-box"><h4>→貸し出し期間の変更</h4></a>
+@endif
         </div>
     </div>
 </div>

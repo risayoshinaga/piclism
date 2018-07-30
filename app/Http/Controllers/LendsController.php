@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Camera;
 use App\Lend;
+use App\Borrow;
 use Calendar;
+use App\User;
 class LendsController extends Controller
 {
    
@@ -56,6 +58,33 @@ class LendsController extends Controller
 
             );
           }
+
+
+       $borrow_data = Borrow::where('camera_id',$cameraId)->get();
+        if($borrow_data->count()){
+
+        foreach ($borrow_data as $value) {
+            $id = $value->user_id;
+            $user=User::find($id);
+            $events[] = Calendar::event(
+
+                "$user->name"."が予約済み",
+
+                true,
+
+                new \DateTime($value->start),
+
+                new \DateTime($value->end.' +1 day'),
+                
+                null,
+                
+                ['color' => '#f05050',
+                ]
+            );
+          }
+       }
+
+
        }else {
            $events[] = Calendar::event(
 

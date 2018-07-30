@@ -99,7 +99,8 @@ class BorrowsController extends Controller
           }
        }
         $calendar = Calendar::addEvents($events);
-        return view('borrows.show', ['calendar' => $calendar, 'id' => $cameraId]);
+        $camera = Camera::find($cameraId);
+        return view('borrows.show', ['calendar' => $calendar, 'id' => $cameraId,'camera'=>$camera]);
     }
     
     public function create($cameraId)

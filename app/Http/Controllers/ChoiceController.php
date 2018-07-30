@@ -39,7 +39,7 @@ class ChoiceController extends Controller
     }
     else if($choice == 4){
         $cameras = Camera::select()
-            ->where('price','<',2000)
+            ->where('price','<=',2000)
             ->get();
     }
     else if($choice == 5){

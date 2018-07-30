@@ -20,9 +20,9 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                            {{--    <li><a href="{{ route('sss') }}">使うシーンから探す</a></li>
-                                <li><a href="{{ route('ppp') }}">料金から探す</a></li>          --}}
-                                <li><a href="{{ route('allpicture') }}">撮った写真から選ぶ</a></li>                                
+                                <li><a href="{{ route('sss') }}">使うシーンから探す</a></li>
+                                <li><a href="{{ route('ppp') }}">料金から探す</a></li>
+                                <li><a href="{{ route('allpicture') }}">撮った写真から選ぶ</a></li>
                                 <li><a href="{{ route('cameras.index') }}">全てのカメラから選ぶ</a></li>
                             </ul>
                         </li>
