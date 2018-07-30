@@ -79,10 +79,13 @@ class BorrowsController extends Controller
         if($borrow_data->count()){
 
         foreach ($borrow_data as $value) {
-            
+        $id=$value->user_id;
+        $user_id=\Auth::user()->id;
+        $user=User::find($id);
+    if($id==$user_id){       
             $events[] = Calendar::event(
 
-                "予約済み",
+                "$user->name"."が予約済み",
 
                 true,
 
@@ -91,11 +94,28 @@ class BorrowsController extends Controller
                 new \DateTime($value->end.' +1 day'),
                 
                 null,
-                
+            
                 ['color' => '#f05050',
                 'url' => route('borrows.edit',['borrow' => $value->id])
                 ]
             );
+    }else{
+                  $events[] = Calendar::event(
+
+                "$user->name"."が予約済み",
+
+                true,
+
+                new \DateTime($value->start),
+
+                new \DateTime($value->end.' +1 day'),
+                
+                null,
+            
+                ['color' => '#f05050',
+                ]
+            );  
+    }
           }
        }
         $calendar = Calendar::addEvents($events);
