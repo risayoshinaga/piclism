@@ -16,13 +16,13 @@ class ChoiceController extends Controller
     if($choice == 0){
         $cameras = Camera::select()
             ->join('camedatas','camedatas.camera_id','=','cameras.id')
-            ->where('scene','scenery')
+            ->where('scene','person')
             ->get();
     }
     else if($choice == 1){
         $cameras = Camera::select()
             ->join('camedatas','camedatas.camera_id','=','cameras.id')
-            ->where('scene','person')
+            ->where('scene','scenery')
             ->get();
     }
     else if($choice == 2){
