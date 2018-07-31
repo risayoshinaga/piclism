@@ -60,16 +60,9 @@ class CamerasController extends Controller
                   'camera_id' => $camera_id,
                             ]);
 
-        $user = \Auth::user();
-        $cameras = $user->cameras()->get();
-        $pictures = $user->pictures()->get();
-        $data =[
-            'user' => $user,
-            'pictures' => $pictures,
-            'cameras' => $cameras,
-            ];
+        $lends = Camera::find($camera_id)->lends()->get();
             
-        return redirect()->route('lends.show', ['cameraId'=>$camera_id]);  
+        return redirect()->route('lends.show', ['cameraId'=>$camera_id , 'lends'=>$lends]);  
     }
     
     public function create()

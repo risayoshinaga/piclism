@@ -6,7 +6,6 @@
     <h1><span class="one">M</span>AKE <span class="one">R</span>ESERVATION</h1>
     </div>
 @if (Auth::user()->id !== $camera->user_id) 
-
     <div class="col-md-offset-2 col-md-8">
         <h3><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>カレンダーの貸し出し可能期間内で、レンタルしたい日にちを選択してください。</h3>
     </div>

@@ -20,7 +20,7 @@
 @if (Auth::user()->id === $user->id)
 <div class="circle">
     <a href="{{ route('intro') }}" class="bt-samp31">プロフィール編集</a>
-    <a href="{{ route('borrows.index') }}" class="bt-samp31">予約確認</a>
+    <a href="{{ route('borrows.index') }}" class="bt-samp31">予約した日を確認</a>
 </div>
 <style>
 a.bt-samp31{
@@ -67,13 +67,11 @@ a.bt-samp31:hover{
                     <h2><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> {{ $camera->name}}</h2>
                 </a>
                 <p><h4><span class="glyphicon glyphicon-jpy" aria-hidden="true"></span> {{ $camera->price}}円/泊</h4></p>
-@if (Auth::user()->id == $camera->user_id)                
-                <a href="{{ route('lends.show', ['id' => $camera->id])}}" class="work-box"><h4>→貸し出し期間と予約を確認</h4></h4></a>
-@endif
-                
             </div>
-            
         </div>
+@if (Auth::user()->id == $camera->user_id)                
+                <a href="{{ route('lends.show', ['id' => $camera->id])}}" class="work-box"><h4>→貸し出し期間と予約を確認</h4></a>
+@endif
     </div>
     @endforeach
 </div>

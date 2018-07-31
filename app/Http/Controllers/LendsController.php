@@ -29,7 +29,8 @@ class LendsController extends Controller
                 'start' => $request->start,
                 'end' => $request->end
             ]);
-        return redirect()->route('lends.show',['id' => $request->id]);
+        $lends = $camera->lends()->get();
+        return redirect()->route('lends.show',['id' => $request->id,'lends'=> $lends]);
     }
 
     public function show($cameraId)
@@ -98,7 +99,8 @@ class LendsController extends Controller
             );
        }
         $calendar = Calendar::addEvents($events);
-        return view('lends.show', ['calendar' => $calendar, 'id' => $cameraId]);
+        $lends = Camera::find($cameraId)->lends()->get();
+        return view('lends.show', ['calendar' => $calendar, 'id' => $cameraId , 'lends'=> $lends]);
     }
 
     public function edit($id)
@@ -116,7 +118,9 @@ class LendsController extends Controller
             'start' => $request->start,
             'end' => $request->end,
         ]);
-        return redirect()->route('lends.show',['cameraId' => $request->cameraId]);
+        $lends = Camera::find($request->cameraId)->lends()->get();
+    
+        return redirect()->route('lends.show',['cameraId' => $request->cameraId, 'lends'=> $lends]);
     }
 
     public function destroy($id)

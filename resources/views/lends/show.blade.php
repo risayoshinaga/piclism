@@ -6,9 +6,15 @@
     <div class="photolist">
     <h1><span class="one">C</span>REATE <span class="one">S</span>CHEDULES</h1>
     </div>
+@if(empty($lends))
     <div class="col-md-offset-2 col-md-8">
         <h3><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>貸し出す日にちを選択してください。</h3>
     </div>
+@else
+    <div class="col-md-offset-2 col-md-8">
+        <h3><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>貸し出し日程が入っています。追加したい場合は日程を選択してください。</h3>
+    </div>
+@endif
         @include('lends.create',['id'=>$id])
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
